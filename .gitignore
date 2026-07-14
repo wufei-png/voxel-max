@@ -1,5 +1,13 @@
 .DS_Store
+__pycache__/
+*.pyc
 *.log
 node_modules/
 dist/
 .env
+
+# Pack intermediates (regenerable / duplicate of approved source)
+**/packs/**/work/animation-builds/
+**/packs/**/work/builds/
+**/packs/**/output/**/source/rendered-frames/
+**/packs/**/output/**/qa/preview-30fps.png
