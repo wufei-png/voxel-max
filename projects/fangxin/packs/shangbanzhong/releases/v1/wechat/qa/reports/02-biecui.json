@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "platform": "wechat",
+  "verified_on": "2026-07-14",
+  "spec_url": "https://sticker.weixin.qq.com/cgi-bin/mmemoticon-bin/readtemplate?t=guide/index.html#/makingSpecifications",
+  "source_package": "projects/fangxin/packs/shangbanzhong/output/s02-biecui-square-to-squint",
+  "source_review_status": "pass",
+  "source_review": {
+    "aggregate": "pass",
+    "automatic": "pass",
+    "visual": "pass"
+  },
+  "canvas": [
+    240,
+    240
+  ],
+  "frame_count": 5,
+  "total_duration_ms": 1240,
+  "gif": {
+    "path": "projects/fangxin/packs/shangbanzhong/output/s02-biecui-square-to-squint/exports/wechat/sticker.gif",
+    "bytes": 103615,
+    "max_bytes": 500000,
+    "colors": 255,
+    "alpha_threshold": 96,
+    "sha256": "5fc15ce54fe5c64a615373f2149005097c80ecefaec0f0eea95f50798d18fa77",
+    "validation": {
+      "checks": {
+        "size_matches": true,
+        "frame_count_matches": true,
+        "durations_preserved": true,
+        "loop_matches": true,
+        "all_borders_transparent": true
+      },
+      "durations_ms": [
+        180,
+        160,
+        160,
+        180,
+        560
+      ]
+    }
+  },
+  "preview": {
+    "path": "projects/fangxin/packs/shangbanzhong/output/s02-biecui-square-to-squint/exports/wechat/qa-preview.png",
+    "frame": 5,
+    "mode": "rgba",
+    "colors": null,
+    "bytes": 41975,
+    "sha256": "e91dee485b5f2553adb05716a247da928711a17297f3dfa6907ca9da9825e9db"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "s07-yiduzhuangsi",
+  "prompt": "主体始终趴平装死，核心近乎熄灭，只有画面右眼短暂睁缝偷看后重新闭合并循环。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "identity_lock": {
+    "subject": "Voxel Max 2.5D turquoise rounded-square AI mascot",
+    "fixed": [
+      "right-top inward notch",
+      "turquoise body palette and soft 2.5D material",
+      "front-facing rounded-square silhouette",
+      "centered cyan-white rounded-square status core",
+      "dark glossy physical eye modules and symmetric spacing"
+    ],
+    "flexible": [
+      "eye shape",
+      "core brightness",
+      "small body translation",
+      "one support signal"
+    ],
+    "forbidden": [
+      "limbs or mouth",
+      "body hue drift",
+      "missing or inverted notch",
+      "text generated inside the anchor",
+      "extra UI or props"
+    ]
+  },
+  "generation_plan": {
+    "anchors": [
+      "projects/fangxin/packs/shangbanzhong/work/s07-flat-closed-rgba.png"
+    ],
+    "deterministic": [
+      "closed-eye pixel replacement",
+      "single-eye vertical resize",
+      "highlight scaling",
+      "global dimming",
+      "dark core",
+      "timing"
+    ]
+  },
+  "transparency": {
+    "strategy": "chroma-key",
+    "work_color": "#FF00FF"
+  },
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 220,
+      "description": "主体趴平，双横线眼，核心近乎熄灭。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 140,
+      "description": "画面右眼出现极窄缝和微弱高光。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 560,
+      "description": "画面右眼直接纵向变形到常态方眼高度约 50%，停留偷看语义。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 160,
+      "description": "画面右眼重新闭合。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 400,
+      "description": "保持趴平装死状态，核心维持最弱信号后循环。"
+    }
+  ]
+}

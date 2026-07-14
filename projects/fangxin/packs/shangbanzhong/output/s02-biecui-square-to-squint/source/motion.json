@@ -1,0 +1,78 @@
+{
+  "id": "s02-biecui-square-to-squint",
+  "prompt": "眼睛先保持常态方形；主体完成一次轻微下沉回弹后眯成半闭横眼，WORKING 三个句点依次点亮并循环。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "identity_lock": {
+    "subject": "Voxel Max 2.5D turquoise rounded-square AI mascot",
+    "fixed": [
+      "right-top inward notch",
+      "turquoise body palette and soft 2.5D material",
+      "front-facing rounded-square silhouette",
+      "centered cyan-white rounded-square status core",
+      "dark glossy physical eye modules and symmetric spacing"
+    ],
+    "flexible": [
+      "eye shape",
+      "core brightness",
+      "small body translation",
+      "one support signal"
+    ],
+    "forbidden": [
+      "limbs or mouth",
+      "body hue drift",
+      "missing or inverted notch",
+      "text generated inside the anchor",
+      "extra UI or props"
+    ]
+  },
+  "generation_plan": {
+    "anchors": [
+      "projects/fangxin/packs/shangbanzhong/work/v6-neutral-rgba.png",
+      "projects/fangxin/packs/shangbanzhong/work/s02-working-eyes-rgba.png"
+    ],
+    "deterministic": [
+      "anchor switch after recovery",
+      "exact WORKING text",
+      "sequential period opacity",
+      "core pulse",
+      "vertical translation",
+      "timing"
+    ]
+  },
+  "transparency": {
+    "strategy": "chroma-key",
+    "work_color": "#FF00FF"
+  },
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 180,
+      "description": "常态方眼，核心低亮，机身显示 WORKING，无句点。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 160,
+      "description": "保持方眼，第一个句点点亮，主体轻微下沉。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 160,
+      "description": "保持方眼，第二个句点点亮，主体回弹一半。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 180,
+      "description": "主体回到基线，双眼眯成半闭横眼，第三个句点点亮。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 560,
+      "description": "半闭横眼与 WORKING... 完整停留，然后循环回方眼。"
+    }
+  ]
+}

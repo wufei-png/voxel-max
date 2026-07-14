@@ -1,0 +1,64 @@
+{
+  "status": "published",
+  "verified_on": "2026-07-14",
+  "title": "方芯上班中",
+  "introduction": "方芯是一枚认真上班的小芯片，负责收到、处理中、跑通，以及偶尔卡住和装死。",
+  "distribution": "free",
+  "artist_and_copyright": "managed_by_submitter_outside_repository",
+  "spec_url": "https://sticker.weixin.qq.com/cgi-bin/mmemoticon-bin/readtemplate?t=guide/index.html#/makingSpecifications",
+  "items": [
+    {
+      "number": "01",
+      "slug": "shoudao",
+      "meaning": "收到",
+      "source_package": "s01-shoudao"
+    },
+    {
+      "number": "02",
+      "slug": "biecui",
+      "meaning": "别催",
+      "source_package": "s02-biecui-square-to-squint"
+    },
+    {
+      "number": "03",
+      "slug": "sikaozhong",
+      "meaning": "思考中",
+      "source_package": "s03-sikaozhong"
+    },
+    {
+      "number": "04",
+      "slug": "paotongle",
+      "meaning": "跑通了",
+      "source_package": "s04-paotongle"
+    },
+    {
+      "number": "05",
+      "slug": "kazhule",
+      "meaning": "卡住了",
+      "source_package": "s05-kazhule"
+    },
+    {
+      "number": "06",
+      "slug": "guorele",
+      "meaning": "过热了",
+      "source_package": "s06-cpushaole"
+    },
+    {
+      "number": "07",
+      "slug": "yiduzhuangsi",
+      "meaning": "已读装死",
+      "source_package": "s07-yiduzhuangsi"
+    },
+    {
+      "number": "08",
+      "slug": "yabianle",
+      "meaning": "压扁了",
+      "source_package": "s08-bug-squash"
+    }
+  ],
+  "brand_assets": {
+    "cover": "cover.png",
+    "chat_icon": "chat-icon.png",
+    "banner": "banner.png"
+  }
+}

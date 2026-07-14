@@ -1,0 +1,76 @@
+{
+  "id": "s06-cpushaole",
+  "prompt": "半闭疲惫眼，主体轻微鼓胀，核心由青白转黄再转红，顶部一缕烟出现后淡出并循环。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "identity_lock": {
+    "subject": "Voxel Max 2.5D turquoise rounded-square AI mascot",
+    "fixed": [
+      "right-top inward notch",
+      "turquoise body palette and soft 2.5D material",
+      "front-facing rounded-square silhouette",
+      "centered cyan-white rounded-square status core",
+      "dark glossy physical eye modules and symmetric spacing"
+    ],
+    "flexible": [
+      "eye shape",
+      "core brightness",
+      "small body translation",
+      "one support signal"
+    ],
+    "forbidden": [
+      "limbs or mouth",
+      "body hue drift",
+      "missing or inverted notch",
+      "text generated inside the anchor",
+      "extra UI or props"
+    ]
+  },
+  "generation_plan": {
+    "anchors": [
+      "projects/fangxin/packs/shangbanzhong/work/s02-working-eyes-rgba.png"
+    ],
+    "deterministic": [
+      "uniform scale",
+      "yellow and red core tint",
+      "centered multi-wisp smoke plume",
+      "opacity",
+      "timing"
+    ]
+  },
+  "transparency": {
+    "strategy": "chroma-key",
+    "work_color": "#FF00FF"
+  },
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 180,
+      "description": "半闭疲惫眼，核心青白，主体稳定。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 180,
+      "description": "主体轻微鼓胀，核心转黄。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 180,
+      "description": "核心转红并提亮，头顶正中开始出现一组烟丝。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 560,
+      "description": "正中的单组烟柱展开为三条轻烟丝，根部压入头顶，红色核心停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 180,
+      "description": "烟与红色核心淡回常态后循环。"
+    }
+  ]
+}

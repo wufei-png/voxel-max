@@ -1,0 +1,75 @@
+{
+  "id": "s03-sikaozhong",
+  "prompt": "保持身体稳定和专注眼，核心缓慢脉冲，右上三个方形思考点依次出现并循环。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "identity_lock": {
+    "subject": "Voxel Max 2.5D turquoise rounded-square AI mascot",
+    "fixed": [
+      "right-top inward notch",
+      "turquoise body palette and soft 2.5D material",
+      "front-facing rounded-square silhouette",
+      "centered cyan-white rounded-square status core",
+      "dark glossy physical eye modules and symmetric spacing"
+    ],
+    "flexible": [
+      "eye shape",
+      "core brightness",
+      "small body translation",
+      "one support signal"
+    ],
+    "forbidden": [
+      "limbs or mouth",
+      "body hue drift",
+      "missing or inverted notch",
+      "text generated inside the anchor",
+      "extra UI or props"
+    ]
+  },
+  "generation_plan": {
+    "anchors": [
+      "projects/fangxin/packs/shangbanzhong/work/s03-thinking-eyes-rgba.png"
+    ],
+    "deterministic": [
+      "three square thought points",
+      "point opacity",
+      "core pulse",
+      "timing"
+    ]
+  },
+  "transparency": {
+    "strategy": "chroma-key",
+    "work_color": "#FF00FF"
+  },
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 180,
+      "description": "专注眼，核心低亮，右上没有思考点。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 160,
+      "description": "最靠近缺角的第一个方形思考点出现。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 180,
+      "description": "第二个方形思考点出现，核心亮度上升。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 560,
+      "description": "三个方形思考点全部出现，核心达到最高亮度并停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 180,
+      "description": "三个方点一起淡出，核心回到低亮后循环。"
+    }
+  ]
+}

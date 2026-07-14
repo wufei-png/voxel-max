@@ -1,0 +1,118 @@
+{
+  "status": "pass",
+  "automatic_review": {
+    "status": "pass",
+    "checks": {
+      "frame_count_in_default_range": true,
+      "source_frames_are_rgba": true,
+      "all_frames_match_expected_size": true,
+      "all_borders_transparent": true,
+      "all_frames_have_visible_pixels": true,
+      "all_frames_are_unique": true,
+      "duration_in_default_range": true
+    }
+  },
+  "visual_review": {
+    "status": "pass",
+    "notes": {
+      "identity": "缺角、主体色相和核心位置稳定；方眼只在回弹完成后切换为半闭实体眼。",
+      "meaning": "WORKING 与三个句点依次出现，一次下沉回弹后由方眼收束成眯眼终态，区别于原版全程眯眼。",
+      "loop": "动作完成后在三点和眯眼终态停留，循环回方眼无点首帧时语义重启清楚。",
+      "alpha": "检查器、浅色和深色背景均无洋红残留、白边或画布接触。",
+      "small_size": "50×50 下方眼到眯眼的状态差、核心和 WORKING 主信号仍可辨。"
+    }
+  },
+  "canvas": [
+    1024,
+    1024
+  ],
+  "frame_count": 5,
+  "total_duration_ms": 1240,
+  "frames": [
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        134,
+        94,
+        915,
+        950
+      ],
+      "transparent_pixels": 421195,
+      "partial_alpha_pixels": 10175,
+      "border_is_transparent": true,
+      "pixel_sha256": "40237caf28da55e98323472fc8e8dd08151e65faa29facf7b7da34c5ceddf1c2"
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        134,
+        110,
+        915,
+        966
+      ],
+      "transparent_pixels": 421195,
+      "partial_alpha_pixels": 10175,
+      "border_is_transparent": true,
+      "pixel_sha256": "580b864ecc3381c8c4a1820f147aa233af604a601700eb19f4ef6310a129910c"
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        134,
+        102,
+        915,
+        958
+      ],
+      "transparent_pixels": 421195,
+      "partial_alpha_pixels": 10175,
+      "border_is_transparent": true,
+      "pixel_sha256": "4ce2c97716d80600f7c2092ed584586ad41740fe2193a6754e57b140ac8cd9a3"
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        134,
+        94,
+        914,
+        950
+      ],
+      "transparent_pixels": 421654,
+      "partial_alpha_pixels": 9851,
+      "border_is_transparent": true,
+      "pixel_sha256": "9a56f0cd438ab342cc5a5bc4f17bff5920752496c382de0ba3926a28777cca74"
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        134,
+        94,
+        914,
+        950
+      ],
+      "transparent_pixels": 421654,
+      "partial_alpha_pixels": 9851,
+      "border_is_transparent": true,
+      "pixel_sha256": "f9b832e84f8ba98914c1698d7c407c689a3331f982445ca2c7037c8ace88b898"
+    }
+  ]
+}

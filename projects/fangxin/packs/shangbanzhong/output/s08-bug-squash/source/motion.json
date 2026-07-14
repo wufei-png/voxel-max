@@ -1,0 +1,48 @@
+{
+  "id": "s08-bug-squash",
+  "prompt": "一只有两只小眼睛的 Bug 从上方落下，把主体压扁后再抬起。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "working_anchors": {
+    "neutral": "projects/fangxin/packs/shangbanzhong/work/v6-neutral-rgba.png",
+    "max_squash": "projects/fangxin/packs/shangbanzhong/work/s08-squash-approved-rgba.png",
+    "bug": "projects/fangxin/packs/shangbanzhong/work/s08-bug-rgba.png"
+  },
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1420,
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 160,
+      "description": "主体保持警觉，头顶没有 Bug。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 180,
+      "description": "带两只发光眼的 Bug 从上方进入。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 120,
+      "description": "Bug 接触头顶，主体尚未发生最大形变。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 560,
+      "description": "Bug 猛然下压，主体变宽变扁并停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 220,
+      "description": "Bug 微微抬起，主体仍保持最大受压形态。"
+    },
+    {
+      "file": "frames/005.png",
+      "duration_ms": 180,
+      "description": "Bug 向上离开，主体弹回初始比例并衔接首帧。"
+    }
+  ]
+}

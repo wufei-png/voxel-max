@@ -1,0 +1,82 @@
+{
+  "id": "s04-paotongle",
+  "prompt": "核心转绿，机身整体渐现 DONE，双眼变成实体 ^ ^ 并短促轻弹后循环。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "identity_lock": {
+    "subject": "Voxel Max 2.5D turquoise rounded-square AI mascot",
+    "fixed": [
+      "right-top inward notch",
+      "turquoise body palette and soft 2.5D material",
+      "front-facing rounded-square silhouette",
+      "centered cyan-white rounded-square status core",
+      "dark glossy physical eye modules and symmetric spacing"
+    ],
+    "flexible": [
+      "eye shape",
+      "core brightness",
+      "small body translation",
+      "one support signal"
+    ],
+    "forbidden": [
+      "limbs or mouth",
+      "body hue drift",
+      "missing or inverted notch",
+      "text generated inside the anchor",
+      "extra UI or props"
+    ]
+  },
+  "generation_plan": {
+    "anchors": [
+      "projects/fangxin/packs/shangbanzhong/work/v6-neutral-rgba.png",
+      "projects/fangxin/packs/shangbanzhong/work/v6-happy-rgba.png"
+    ],
+    "deterministic": [
+      "green core tint",
+      "whole-word DONE opacity",
+      "vertical squash and bounce",
+      "anchor switch",
+      "timing"
+    ]
+  },
+  "transparency": {
+    "strategy": "chroma-key",
+    "work_color": "#FF00FF"
+  },
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 160,
+      "description": "常态方眼、青白核心、无文字。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 120,
+      "description": "核心转绿，主体向下压缩约 3%。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 160,
+      "description": "双眼变成实体 ^ ^，主体开始回弹，DONE 整体以 40% 不透明度出现。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 160,
+      "description": "主体向上轻弹，绿色核心和 DONE 完全可读。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 560,
+      "description": "主体回到基线，保持绿色核心、DONE 和 ^ ^ 眼并停留。"
+    },
+    {
+      "file": "frames/005.png",
+      "duration_ms": 160,
+      "description": "DONE 整体淡出，核心和方眼回到常态后循环。"
+    }
+  ]
+}

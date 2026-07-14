@@ -1,0 +1,44 @@
+{
+  "id": "s01-shoudao",
+  "prompt": "先显示“收”，再显示“到”，最后双眼变成实体 ^ ^ 并轻弹一下。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "working_master": "projects/fangxin/packs/shangbanzhong/work/v6-neutral-rgba-1024.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1440,
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 160,
+      "description": "中性方眼，无文字，核心常亮。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 180,
+      "description": "核心下方左侧出现“收”。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 220,
+      "description": "右侧出现“到”，并保留“收”。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 120,
+      "description": "主体向下压缩约 3%，文字保持，核心短促提亮。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 600,
+      "description": "主体向上轻弹，双眼形成实体 ^ ^，文字保持并停留。"
+    },
+    {
+      "file": "frames/005.png",
+      "duration_ms": 160,
+      "description": "主体回到基线和常态方眼，文字淡出后衔接首帧。"
+    }
+  ]
+}

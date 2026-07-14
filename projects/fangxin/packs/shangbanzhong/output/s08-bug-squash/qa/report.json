@@ -1,0 +1,128 @@
+{
+  "status": "pass",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "frame_count": 6,
+  "total_duration_ms": 1420,
+  "automatic_review": {
+    "status": "pass",
+    "checks": {
+      "frame_count_in_default_range": true,
+      "source_frames_are_rgba": true,
+      "all_frames_match_expected_size": true,
+      "all_borders_transparent": true,
+      "all_frames_have_visible_pixels": true,
+      "duration_in_default_range": true
+    }
+  },
+  "checks": {
+    "frame_count_is_six": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_in_default_range": true
+  },
+  "frames": [
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_bbox": [
+        168,
+        215,
+        855,
+        968
+      ],
+      "transparent_pixels": 561744,
+      "partial_alpha_pixels": 10407,
+      "border_is_transparent": true
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_bbox": [
+        168,
+        43,
+        855,
+        968
+      ],
+      "transparent_pixels": 535642,
+      "partial_alpha_pixels": 13841,
+      "border_is_transparent": true
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_bbox": [
+        168,
+        71,
+        855,
+        968
+      ],
+      "transparent_pixels": 535982,
+      "partial_alpha_pixels": 13568,
+      "border_is_transparent": true
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_bbox": [
+        138,
+        409,
+        886,
+        968
+      ],
+      "transparent_pixels": 702552,
+      "partial_alpha_pixels": 11260,
+      "border_is_transparent": true
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_bbox": [
+        138,
+        391,
+        886,
+        968
+      ],
+      "transparent_pixels": 700479,
+      "partial_alpha_pixels": 11674,
+      "border_is_transparent": true
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_bbox": [
+        168,
+        23,
+        855,
+        968
+      ],
+      "transparent_pixels": 535642,
+      "partial_alpha_pixels": 13841,
+      "border_is_transparent": true
+    }
+  ],
+  "visual_review": {
+    "status": "pass",
+    "notes": {
+      "identity": "最大受压帧仍保留右上缺角方向、主体色相和近方形核心；圆润隆起属于批准的挤压形变。",
+      "meaning": "带两只小眼睛的 Bug 与主体保持紧密接触，落下、压扁、微抬和离开无需文字即可读懂。",
+      "loop": "受压停留充分，Bug 离开后主体恢复，循环没有明显位置跳变。",
+      "alpha": "浅色、深色和检查器背景下无残底、白边、裁切或画布接触。",
+      "small_size": "聊天尺寸下 Bug 眼睛、压扁轮廓和核心可辨；Bug 视觉权重低于主体。"
+    }
+  }
+}

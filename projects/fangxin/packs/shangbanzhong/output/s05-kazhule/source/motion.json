@@ -1,0 +1,75 @@
+{
+  "id": "s05-kazhule",
+  "prompt": "主体被左右两段短夹轨卡住，以 > < 眼小幅左右挣扎，黄色核心断续脉冲并循环。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "identity_lock": {
+    "subject": "Voxel Max 2.5D turquoise rounded-square AI mascot",
+    "fixed": [
+      "right-top inward notch",
+      "turquoise body palette and soft 2.5D material",
+      "front-facing rounded-square silhouette",
+      "centered cyan-white rounded-square status core",
+      "dark glossy physical eye modules and symmetric spacing"
+    ],
+    "flexible": [
+      "eye shape",
+      "core brightness",
+      "small body translation",
+      "one support signal"
+    ],
+    "forbidden": [
+      "limbs or mouth",
+      "body hue drift",
+      "missing or inverted notch",
+      "text generated inside the anchor",
+      "extra UI or props"
+    ]
+  },
+  "generation_plan": {
+    "anchors": [
+      "projects/fangxin/packs/shangbanzhong/work/s05-stuck-anchor-rgba.png"
+    ],
+    "deterministic": [
+      "short clamp rails",
+      "horizontal translation",
+      "yellow pulse",
+      "timing"
+    ]
+  },
+  "transparency": {
+    "strategy": "chroma-key",
+    "work_color": "#FF00FF"
+  },
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 180,
+      "description": "主体卡在短夹轨中线，黄色核心低亮。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 180,
+      "description": "主体向左挣扎，黄色核心提亮。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 140,
+      "description": "主体回到中线，核心短暂接近熄灭。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 180,
+      "description": "主体向右挣扎，黄色核心重新亮起。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 560,
+      "description": "主体回到中线，保持被卡状态并停留后循环。"
+    }
+  ]
+}

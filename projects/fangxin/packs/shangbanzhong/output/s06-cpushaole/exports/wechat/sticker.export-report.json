@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "platform": "wechat",
+  "verified_on": "2026-07-14",
+  "spec_url": "https://sticker.weixin.qq.com/cgi-bin/mmemoticon-bin/readtemplate?t=guide/index.html#/makingSpecifications",
+  "source_package": "projects/fangxin/packs/shangbanzhong/output/s06-cpushaole",
+  "source_review_status": "pass",
+  "source_review": {
+    "aggregate": "pass",
+    "automatic": "pass",
+    "visual": "pass"
+  },
+  "canvas": [
+    240,
+    240
+  ],
+  "frame_count": 5,
+  "total_duration_ms": 1280,
+  "gif": {
+    "path": "projects/fangxin/packs/shangbanzhong/output/s06-cpushaole/exports/wechat/sticker.gif",
+    "bytes": 105316,
+    "max_bytes": 500000,
+    "colors": 255,
+    "alpha_threshold": 96,
+    "sha256": "905c6e9e800223fd715421bb07a20827c67a0acb7f3525c982283a2ab252ebe6",
+    "validation": {
+      "checks": {
+        "size_matches": true,
+        "frame_count_matches": true,
+        "durations_preserved": true,
+        "loop_matches": true,
+        "all_borders_transparent": true
+      },
+      "durations_ms": [
+        180,
+        180,
+        180,
+        560,
+        180
+      ]
+    }
+  },
+  "preview": {
+    "path": "projects/fangxin/packs/shangbanzhong/output/s06-cpushaole/exports/wechat/qa-preview.png",
+    "frame": 4,
+    "mode": "rgba",
+    "colors": null,
+    "bytes": 42048,
+    "sha256": "f0b62af8f3fad48b91cc77f2c2f19d39d209c8f098765c20e6da296a0b152262"
+  }
+}

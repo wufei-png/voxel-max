@@ -1,0 +1,146 @@
+{
+  "status": "pass",
+  "automatic_review": {
+    "status": "pass",
+    "checks": {
+      "wechat_has_eight_stickers": true,
+      "wechat_stickers_match_limits": true,
+      "cover_matches_limits": true,
+      "chat_icon_matches_limits": true,
+      "banner_matches_limits": true,
+      "wechat_copy_matches_limits": true
+    }
+  },
+  "visual_review": null,
+  "wechat": {
+    "stickers": [
+      {
+        "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/stickers/01-shoudao.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 120846,
+        "frame_count": 6,
+        "loop": 0
+      },
+      {
+        "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/stickers/02-biecui.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 103615,
+        "frame_count": 5,
+        "loop": 0
+      },
+      {
+        "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/stickers/03-sikaozhong.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 104149,
+        "frame_count": 5,
+        "loop": 0
+      },
+      {
+        "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/stickers/04-paotongle.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 122230,
+        "frame_count": 6,
+        "loop": 0
+      },
+      {
+        "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/stickers/05-kazhule.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 105975,
+        "frame_count": 5,
+        "loop": 0
+      },
+      {
+        "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/stickers/06-guorele.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 105316,
+        "frame_count": 5,
+        "loop": 0
+      },
+      {
+        "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/stickers/07-yiduzhuangsi.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 67040,
+        "frame_count": 5,
+        "loop": 0
+      },
+      {
+        "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/stickers/08-yabianle.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 88996,
+        "frame_count": 6,
+        "loop": 0
+      }
+    ],
+    "cover": {
+      "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/cover.png",
+      "format": "PNG",
+      "size": [
+        240,
+        240
+      ],
+      "bytes": 44451,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "border_is_transparent": true,
+      "fully_opaque": false
+    },
+    "chat_icon": {
+      "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/chat-icon.png",
+      "format": "PNG",
+      "size": [
+        50,
+        50
+      ],
+      "bytes": 3289,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "border_is_transparent": true,
+      "fully_opaque": false
+    },
+    "banner": {
+      "path": "projects/fangxin/packs/shangbanzhong/releases/v1/wechat/banner.png",
+      "format": "PNG",
+      "size": [
+        750,
+        400
+      ],
+      "bytes": 137349,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "border_is_transparent": false,
+      "fully_opaque": true
+    }
+  }
+}
