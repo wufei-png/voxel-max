@@ -1,0 +1,127 @@
+{
+  "purpose": "review-only frame-rate comparison; not production delivery assets",
+  "carrier": "light-background APNG at nominal 20/30/40 fps; total duration differs from authored timing by at most one sample",
+  "interpolation": "deterministic parameter tweening with a 120 ms maximum transition window",
+  "stickers": {
+    "s02-buxing": {
+      "source": "output/s02-buxing/qa/preview.gif",
+      "authored_duration_ms": 1240,
+      "legacy_gif_carrier_duration_ms": 1400,
+      "variants": [
+        {
+          "label": "a-current",
+          "fps": 20,
+          "interpolated": false,
+          "file": "s02-buxing-a-current-20fps.png",
+          "authored_sample_count": 25,
+          "encoded_frame_count": 25,
+          "avg_frame_rate": "20/1",
+          "pixel_format": "rgb24",
+          "bytes": 712412
+        },
+        {
+          "label": "b-balanced",
+          "fps": 30,
+          "interpolated": true,
+          "file": "s02-buxing-b-balanced-30fps.png",
+          "authored_sample_count": 38,
+          "encoded_frame_count": 38,
+          "avg_frame_rate": "30/1",
+          "pixel_format": "rgb24",
+          "bytes": 2502643
+        },
+        {
+          "label": "c-double",
+          "fps": 40,
+          "interpolated": true,
+          "file": "s02-buxing-c-double-40fps.png",
+          "authored_sample_count": 50,
+          "encoded_frame_count": 50,
+          "avg_frame_rate": "40/1",
+          "pixel_format": "rgb24",
+          "bytes": 3409313
+        }
+      ]
+    },
+    "s05-xiexie": {
+      "source": "output/s05-xiexie/qa/preview.gif",
+      "authored_duration_ms": 1340,
+      "legacy_gif_carrier_duration_ms": 1550,
+      "variants": [
+        {
+          "label": "a-current",
+          "fps": 20,
+          "interpolated": false,
+          "file": "s05-xiexie-a-current-20fps.png",
+          "authored_sample_count": 27,
+          "encoded_frame_count": 27,
+          "avg_frame_rate": "20/1",
+          "pixel_format": "rgb24",
+          "bytes": 244279
+        },
+        {
+          "label": "b-balanced",
+          "fps": 30,
+          "interpolated": true,
+          "file": "s05-xiexie-b-balanced-30fps.png",
+          "authored_sample_count": 41,
+          "encoded_frame_count": 41,
+          "avg_frame_rate": "30/1",
+          "pixel_format": "rgb24",
+          "bytes": 491708
+        },
+        {
+          "label": "c-double",
+          "fps": 40,
+          "interpolated": true,
+          "file": "s05-xiexie-c-double-40fps.png",
+          "authored_sample_count": 54,
+          "encoded_frame_count": 54,
+          "avg_frame_rate": "40/1",
+          "pixel_format": "rgb24",
+          "bytes": 584596
+        }
+      ]
+    },
+    "s11-zhendejiade": {
+      "source": "output/s11-zhendejiade/qa/preview.gif",
+      "authored_duration_ms": 1380,
+      "legacy_gif_carrier_duration_ms": 1600,
+      "variants": [
+        {
+          "label": "a-current",
+          "fps": 20,
+          "interpolated": false,
+          "file": "s11-zhendejiade-a-current-20fps.png",
+          "authored_sample_count": 28,
+          "encoded_frame_count": 28,
+          "avg_frame_rate": "20/1",
+          "pixel_format": "rgb24",
+          "bytes": 911971
+        },
+        {
+          "label": "b-balanced",
+          "fps": 30,
+          "interpolated": true,
+          "file": "s11-zhendejiade-b-balanced-30fps.png",
+          "authored_sample_count": 42,
+          "encoded_frame_count": 42,
+          "avg_frame_rate": "30/1",
+          "pixel_format": "rgb24",
+          "bytes": 4347019
+        },
+        {
+          "label": "c-double",
+          "fps": 40,
+          "interpolated": true,
+          "file": "s11-zhendejiade-c-double-40fps.png",
+          "authored_sample_count": 56,
+          "encoded_frame_count": 56,
+          "avg_frame_rate": "40/1",
+          "pixel_format": "rgb24",
+          "bytes": 5253035
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "fps": 30,
+  "frame_count": 47,
+  "duration_ms": 1560,
+  "frame_duration_ms_range": [
+    33,
+    34
+  ],
+  "loop_endpoint_mean_rgba_delta": 0.3929,
+  "checks": {
+    "nominal_fps_is_30": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_matches_authored_timing": true,
+    "loop_endpoint_mean_rgba_delta_below_8": true
+  },
+  "visual_review": {
+    "status": "pass",
+    "notes": [
+      "暗灰青核心的加深过程清楚且严格留在真实内芯内；直立下沉、整体降亮与循环过渡连续。"
+    ]
+  }
+}

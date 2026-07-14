@@ -1,0 +1,77 @@
+{
+  "status": "pass",
+  "platform": "wechat",
+  "verified_on": "2026-07-14",
+  "spec_url": "https://sticker.weixin.qq.com/cgi-bin/mmemoticon-bin/readtemplate?t=guide/index.html#/makingSpecifications",
+  "source": {
+    "package": "s11-zhendejiade",
+    "render_fps": 30,
+    "frame_count": 41,
+    "duration_ms": 1380
+  },
+  "adaptive_encoding": {
+    "fps_order": [
+      30,
+      24,
+      20,
+      15
+    ],
+    "color_order": [
+      128,
+      96,
+      64
+    ],
+    "target_bytes": 490000,
+    "attempts": [
+      {
+        "fps": 30,
+        "colors": 128,
+        "bytes": 632991
+      },
+      {
+        "fps": 30,
+        "colors": 96,
+        "bytes": 589287
+      },
+      {
+        "fps": 30,
+        "colors": 64,
+        "bytes": 463205
+      }
+    ],
+    "selected": {
+      "fps": 30,
+      "colors": 64,
+      "bytes": 463205
+    }
+  },
+  "output": {
+    "path": "projects/fangxin/packs/social-replies/output/s11-zhendejiade/exports/wechat/sticker.gif",
+    "format": "GIF",
+    "size": [
+      240,
+      240
+    ],
+    "bytes": 463205,
+    "frame_count": 41,
+    "duration_ms": 1360,
+    "frame_duration_ms_range": [
+      30,
+      40
+    ],
+    "loop": 0,
+    "transparent_borders": true
+  },
+  "checks": {
+    "format_is_gif": true,
+    "size_is_240_square": true,
+    "under_500000_bytes": true,
+    "animated": true,
+    "loops_forever": true,
+    "transparent_borders": true,
+    "duration_within_50ms_of_source": true,
+    "fps_is_approved_candidate": true,
+    "palette_has_at_least_64_colors": true
+  },
+  "visual_review": null
+}

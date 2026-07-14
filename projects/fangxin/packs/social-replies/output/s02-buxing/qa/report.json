@@ -1,0 +1,94 @@
+{
+  "status": "pass",
+  "checks": {
+    "frame_count_is_5": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_in_pack_range": true,
+    "semantic_hold_at_least_500_ms": true,
+    "loop_endpoint_mean_rgba_delta_below_8": true
+  },
+  "frames": [
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        134,
+        94,
+        914,
+        950
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 9851
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        94,
+        34,
+        926,
+        929
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10784
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        97,
+        24,
+        924,
+        929
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10753
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        134,
+        94,
+        914,
+        950
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 9851
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        134,
+        94,
+        914,
+        950
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 9851
+    }
+  ],
+  "loop_endpoint_mean_rgba_delta": 0.0,
+  "visual_review": {
+    "status": "pass",
+    "reviewed_on": "2026-07-14",
+    "notes": ["近白筛选定位 99×99 真实内芯，连续圆角遮罩无孔洞；珊瑚红轮廓与内芯对齐且外框未染色，NO 位于核心下方。"]
+  }
+}

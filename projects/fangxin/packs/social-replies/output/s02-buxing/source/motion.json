@@ -1,0 +1,113 @@
+{
+  "id": "s02-buxing",
+  "prompt": "主体围绕底部中心完成一次左右拒绝摇摆，半闭横眼、珊瑚红核心和核心下方机身文字“NO”表达不接受。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1240,
+  "identity_lock": {
+    "subject": "方芯 / Voxel Max",
+    "fixed": [
+      "右上向内缺角",
+      "中央圆角方形状态核心及外框",
+      "青绿色 2.5D 圆角方块本体",
+      "两侧深色实体眼部模块",
+      "常态无手脚、无嘴、无眉毛"
+    ],
+    "forbidden": [
+      "缺角镜像、消失或被勾填平",
+      "核心拉成长条或移出鼻位",
+      "主体整体变色",
+      "新增肢体、场景、第二主体或复杂 UI"
+    ]
+  },
+  "generation_plan": {
+    "approved_base": "work/anchors/rgba/half-eyes-rgba.png",
+    "new_generated_anchor": false,
+    "deterministic": [
+      "bottom-pivot rotation",
+      "exact core tint",
+      "recessed body text NO",
+      "coral core pulse",
+      "timing"
+    ]
+  },
+  "semantic_hold_frame": "frames/003.png",
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 180,
+      "description": "半闭横眼、低亮珊瑚红核心，核心下方机身文字“NO”低透明度出现。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 150,
+      "description": "主体以底部中心为支点向画面左侧转约 7°，机身文字“NO”同步显现。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 150,
+      "description": "主体越过中线向画面右侧转约 7°，核心和机身文字“NO”同步提亮。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 580,
+      "description": "主体回到中线，半闭横眼、红色核心和核心下方“NO”稳定停留，表达拒绝。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 180,
+      "description": "回到与首帧一致的低亮拒绝态，机身文字“NO”回落后循环。"
+    }
+  ],
+  "render": {
+    "fps": 30,
+    "method": "deterministic parameter tweening",
+    "transition_window_ms_max": 120,
+    "frame_dir": "rendered-frames",
+    "frame_count": 37,
+    "frame_durations_ms": [
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34,
+      33,
+      34
+    ],
+    "total_duration_ms": 1240
+  }
+}

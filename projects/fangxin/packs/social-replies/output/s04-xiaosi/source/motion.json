@@ -1,0 +1,124 @@
+{
+  "id": "s04-xiaosi",
+  "prompt": "主体以放慢的左右反相柔软波浪抖动表达强烈好笑，实体开心眼随主体局部微晃，机身文字“hhh!”同步浮现。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1580,
+  "identity_lock": {
+    "subject": "方芯 / Voxel Max",
+    "fixed": [
+      "右上向内缺角",
+      "中央圆角方形状态核心及外框",
+      "青绿色 2.5D 圆角方块本体",
+      "两侧深色实体眼部模块",
+      "常态无手脚、无嘴、无眉毛"
+    ],
+    "forbidden": [
+      "缺角镜像、消失或被勾填平",
+      "核心拉成长条或移出鼻位",
+      "主体整体变色",
+      "新增肢体、场景、第二主体或复杂 UI"
+    ]
+  },
+  "generation_plan": {
+    "approved_base": "work/anchors/rgba/happy-eyes-rgba.png",
+    "new_generated_anchor": false,
+    "deterministic": [
+      "slowed horizontal row wave",
+      "synchronized eye micro wobble",
+      "cyan core pulse",
+      "exact recessed text",
+      "slight settle stretch",
+      "timing"
+    ]
+  },
+  "semantic_hold_frame": "frames/003.png",
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 200,
+      "description": "实体开心眼、低亮青白核心，机身文字“hhh!”低透明度出现。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 220,
+      "description": "主体形成第一相位的柔软横向波浪，双眼随波局部上移，文字继续显现。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 220,
+      "description": "波浪反相，双眼同步向相反方向轻移，核心和“hhh!”提亮。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 740,
+      "description": "主体恢复为略微舒展的开心姿态，开心眼、青白核心和“hhh!”稳定停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 200,
+      "description": "回到接近首帧的轻微余震，眼部和文字同步回落后循环。"
+    }
+  ],
+  "render": {
+    "fps": 30,
+    "method": "deterministic parameter tweening",
+    "transition_window_ms_max": 190.0,
+    "frame_dir": "rendered-frames",
+    "frame_count": 47,
+    "frame_durations_ms": [
+      34,
+      33,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      33,
+      34
+    ],
+    "total_duration_ms": 1580
+  }
+}

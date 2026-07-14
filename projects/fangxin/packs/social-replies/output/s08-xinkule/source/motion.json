@@ -1,0 +1,118 @@
+{
+  "id": "s08-xinkule",
+  "prompt": "主体保持底部稳定并缓慢前倾致意，配合确定性文字“辛苦了”认可对方投入。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1420,
+  "identity_lock": {
+    "subject": "方芯 / Voxel Max",
+    "fixed": [
+      "右上向内缺角",
+      "中央圆角方形状态核心及外框",
+      "青绿色 2.5D 圆角方块本体",
+      "两侧深色实体眼部模块",
+      "常态无手脚、无嘴、无眉毛"
+    ],
+    "forbidden": [
+      "缺角镜像、消失或被勾填平",
+      "核心拉成长条或移出鼻位",
+      "主体整体变色",
+      "新增肢体、场景、第二主体或复杂 UI"
+    ]
+  },
+  "generation_plan": {
+    "approved_base": "work/anchors/rgba/neutral-rgba.png",
+    "new_generated_anchor": false,
+    "deterministic": [
+      "top-led forward bow warp",
+      "cyan core dim",
+      "exact recessed text",
+      "timing"
+    ]
+  },
+  "semantic_hold_frame": "frames/003.png",
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 200,
+      "description": "主体保持直立，文字“辛苦了”低透明度出现。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 200,
+      "description": "上部轮廓开始缓慢前压，核心略降。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 200,
+      "description": "前倾致意接近峰值，文字基本可读。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 620,
+      "description": "上部下移约 3%、底部稳定，形成克制致意并停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 200,
+      "description": "主体开始恢复直立，文字淡出并循环。"
+    }
+  ],
+  "render": {
+    "fps": 30,
+    "method": "deterministic parameter tweening",
+    "transition_window_ms_max": 120,
+    "frame_dir": "rendered-frames",
+    "frame_count": 43,
+    "frame_durations_ms": [
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      34,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33
+    ],
+    "total_duration_ms": 1420
+  }
+}

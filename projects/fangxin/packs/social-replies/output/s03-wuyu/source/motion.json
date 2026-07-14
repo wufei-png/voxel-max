@@ -1,0 +1,117 @@
+{
+  "id": "s03-wuyu",
+  "prompt": "主体左上先主塌、左下稍后轻跟随，半闭横眼和低亮核心配合确定性文字“无语”。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1320,
+  "identity_lock": {
+    "subject": "方芯 / Voxel Max",
+    "fixed": [
+      "右上向内缺角",
+      "中央圆角方形状态核心及外框",
+      "青绿色 2.5D 圆角方块本体",
+      "两侧深色实体眼部模块",
+      "常态无手脚、无嘴、无眉毛"
+    ],
+    "forbidden": [
+      "缺角镜像、消失或被勾填平",
+      "核心拉成长条或移出鼻位",
+      "主体整体变色",
+      "新增肢体、场景、第二主体或复杂 UI"
+    ]
+  },
+  "generation_plan": {
+    "approved_base": "work/anchors/rgba/half-eyes-rgba.png",
+    "generated_attempt": "work/anchors/rgba/s03-wuyu-generated-v2-rgba.png",
+    "generated_attempt_status": "rejected_as_full_anchor",
+    "rejection_reason": "核心比例漂移且形变不足以稳定区分困倦；只作轮廓方向参考",
+    "deterministic": [
+      "top-led asymmetric body warp",
+      "dim cyan-gray core",
+      "exact recessed text",
+      "timing"
+    ]
+  },
+  "semantic_hold_frame": "frames/003.png",
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 180,
+      "description": "半闭横眼，左上先失去支撑，文字低透明度出现。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 180,
+      "description": "左上明显下塌，左下稍后轻微跟随，核心降亮。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 180,
+      "description": "左上主塌、左下跟随的非对称软塌接近峰值，文字基本可读。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 600,
+      "description": "左上降幅约为左下两倍，右侧与缺角稳定；半闭眼、低亮核心和“无语”停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 180,
+      "description": "左上先回弹、左下轻微软塌，文字淡出后衔接首帧。"
+    }
+  ],
+  "render": {
+    "fps": 30,
+    "method": "deterministic parameter tweening",
+    "transition_window_ms_max": 120,
+    "frame_dir": "rendered-frames",
+    "frame_count": 40,
+    "frame_durations_ms": [
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33
+    ],
+    "total_duration_ms": 1320
+  }
+}

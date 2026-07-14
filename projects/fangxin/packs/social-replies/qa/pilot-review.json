@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "reviewed_on": "2026-07-14",
+  "scope": [
+    "S01 OK",
+    "S03 无语",
+    "S07 加油"
+  ],
+  "evidence": {
+    "semantic_comparison": "semantic-comparison.png",
+    "per_sticker_contact_sheets": "../output/<sticker>/qa/contact-sheet.png",
+    "per_sticker_small_size_reviews": "../output/<sticker>/qa/small-size-review.png",
+    "per_sticker_animated_previews": "../output/<sticker>/qa/preview.gif",
+    "per_sticker_reports": "../output/<sticker>/qa/report.json"
+  },
+  "decisions": {
+    "s01_ok": "pass；复审后将小勾从缺角移到核心右下缘，缺角恢复为纯身份锚点；绿色实体贴色改为真实内芯遮罩，无文字确认信号与首包“收到”分离。",
+    "s03_wuyu": "pass；复审后改为左上先主塌、左下稍后轻跟随，停留帧左上降幅约为左下两倍，拒绝生成的漂移整图。",
+    "s07_jiayou": "pass；前倾锚点只批准用于本试片，青白实体贴色改为真实内芯遮罩，语义依赖动作、核心和确定性文字共同成立。"
+  },
+  "next_gate": "已满足：最终采样率锁定为 30 fps，12 张参数化中间帧、动画 WebP 与最终全包 QA 已完成。"
+}

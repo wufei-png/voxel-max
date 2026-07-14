@@ -1,0 +1,116 @@
+{
+  "id": "s11-zhendejiade",
+  "prompt": "主体围绕底部中心缓慢向一侧倾斜审视，配合专注眼、黄色核心和“真的假的”。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1380,
+  "identity_lock": {
+    "subject": "方芯 / Voxel Max",
+    "fixed": [
+      "右上向内缺角",
+      "中央圆角方形状态核心及外框",
+      "青绿色 2.5D 圆角方块本体",
+      "两侧深色实体眼部模块",
+      "常态无手脚、无嘴、无眉毛"
+    ],
+    "forbidden": [
+      "缺角镜像、消失或被勾填平",
+      "核心拉成长条或移出鼻位",
+      "主体整体变色",
+      "新增肢体、场景、第二主体或复杂 UI"
+    ]
+  },
+  "generation_plan": {
+    "approved_base": "work/anchors/rgba/focus-eyes-rgba.png",
+    "new_generated_anchor": false,
+    "deterministic": [
+      "single-direction bottom-pivot rotation",
+      "yellow core pulse",
+      "exact recessed text",
+      "timing"
+    ]
+  },
+  "semantic_hold_frame": "frames/003.png",
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 180,
+      "description": "专注眼、低亮黄色核心，文字“真的假的”开始出现。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 200,
+      "description": "主体围绕底部中心向画面右侧慢倾约 2.5°。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 200,
+      "description": "慢倾加深到约 5.5°，核心提亮。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 620,
+      "description": "向单侧倾斜约 7° 的审视姿态和“真的假的”稳定停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 180,
+      "description": "回到接近首帧的小角度倾斜后循环。"
+    }
+  ],
+  "render": {
+    "fps": 30,
+    "method": "deterministic parameter tweening",
+    "transition_window_ms_max": 120,
+    "frame_dir": "rendered-frames",
+    "frame_count": 41,
+    "frame_durations_ms": [
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34,
+      34,
+      33,
+      34
+    ],
+    "total_duration_ms": 1380
+  }
+}

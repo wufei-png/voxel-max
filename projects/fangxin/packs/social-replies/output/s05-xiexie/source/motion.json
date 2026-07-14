@@ -1,0 +1,115 @@
+{
+  "id": "s05-xiexie",
+  "prompt": "状态核心完成一次柔和扩亮，配合确定性文字“谢谢”表达感谢。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1340,
+  "identity_lock": {
+    "subject": "方芯 / Voxel Max",
+    "fixed": [
+      "右上向内缺角",
+      "中央圆角方形状态核心及外框",
+      "青绿色 2.5D 圆角方块本体",
+      "两侧深色实体眼部模块",
+      "常态无手脚、无嘴、无眉毛"
+    ],
+    "forbidden": [
+      "缺角镜像、消失或被勾填平",
+      "核心拉成长条或移出鼻位",
+      "主体整体变色",
+      "新增肢体、场景、第二主体或复杂 UI"
+    ]
+  },
+  "generation_plan": {
+    "approved_base": "work/anchors/rgba/neutral-rgba.png",
+    "new_generated_anchor": false,
+    "deterministic": [
+      "core face expansion within 6 percent",
+      "cyan core pulse",
+      "exact recessed text",
+      "timing"
+    ]
+  },
+  "semantic_hold_frame": "frames/003.png",
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 180,
+      "description": "核心低亮，文字“谢谢”低透明度出现。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 180,
+      "description": "核心光场柔和扩张约 3%，亮度上升。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 180,
+      "description": "核心光场扩张到约 6% 并达到峰值，文字基本可读。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 620,
+      "description": "核心回落到约 4% 的温和高亮，文字“谢谢”稳定停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 180,
+      "description": "核心和文字回落到接近首帧后循环。"
+    }
+  ],
+  "render": {
+    "fps": 30,
+    "method": "deterministic parameter tweening",
+    "transition_window_ms_max": 120,
+    "frame_dir": "rendered-frames",
+    "frame_count": 40,
+    "frame_durations_ms": [
+      34,
+      33,
+      33,
+      34,
+      34,
+      33,
+      33,
+      34,
+      34,
+      33,
+      33,
+      34,
+      34,
+      33,
+      33,
+      34,
+      34,
+      33,
+      33,
+      34,
+      34,
+      33,
+      33,
+      34,
+      34,
+      33,
+      33,
+      34,
+      34,
+      33,
+      33,
+      34,
+      34,
+      33,
+      33,
+      34,
+      34,
+      33,
+      33,
+      34
+    ],
+    "total_duration_ms": 1340
+  }
+}

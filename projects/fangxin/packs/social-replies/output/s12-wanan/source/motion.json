@@ -1,0 +1,123 @@
+{
+  "id": "s12-wanan",
+  "prompt": "主体保持直立并缓慢下沉、降亮，横眼和参照 S10 明显加深的暗灰青核心配合“晚安”完成聊天收尾。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1560,
+  "identity_lock": {
+    "subject": "方芯 / Voxel Max",
+    "fixed": [
+      "右上向内缺角",
+      "中央圆角方形状态核心及外框",
+      "青绿色 2.5D 圆角方块本体",
+      "两侧深色实体眼部模块",
+      "常态无手脚、无嘴、无眉毛"
+    ],
+    "forbidden": [
+      "缺角镜像、消失或被勾填平",
+      "核心拉成长条或移出鼻位",
+      "主体整体变色",
+      "新增肢体、场景、第二主体或复杂 UI"
+    ]
+  },
+  "generation_plan": {
+    "approved_base": "work/anchors/rgba/half-eyes-rgba.png",
+    "new_generated_anchor": false,
+    "deterministic": [
+      "vertical translation",
+      "global dimming",
+      "strengthened dim cyan core",
+      "exact recessed text",
+      "timing"
+    ]
+  },
+  "semantic_hold_frame": "frames/003.png",
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 220,
+      "description": "半闭横眼、低亮核心，文字“晚安”开始出现。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 240,
+      "description": "主体保持直立并缓慢下沉约 8 px，整体略微降亮。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 240,
+      "description": "主体下沉到约 18 px，核心继续熄暗，文字基本可读。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 640,
+      "description": "主体下沉约 26 px、横眼和暗灰青核心稳定，文字“晚安”停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 220,
+      "description": "主体回到接近首帧的浅下沉状态后循环。"
+    }
+  ],
+  "render": {
+    "fps": 30,
+    "method": "deterministic parameter tweening",
+    "transition_window_ms_max": 120,
+    "frame_dir": "rendered-frames",
+    "frame_count": 47,
+    "frame_durations_ms": [
+      33,
+      33,
+      34,
+      33,
+      33,
+      33,
+      33,
+      34,
+      33,
+      33,
+      33,
+      33,
+      33,
+      34,
+      33,
+      33,
+      33,
+      33,
+      34,
+      33,
+      33,
+      33,
+      33,
+      34,
+      33,
+      33,
+      33,
+      33,
+      34,
+      33,
+      33,
+      33,
+      33,
+      34,
+      33,
+      33,
+      33,
+      33,
+      33,
+      34,
+      33,
+      33,
+      33,
+      33,
+      34,
+      33,
+      33
+    ],
+    "total_duration_ms": 1560
+  }
+}

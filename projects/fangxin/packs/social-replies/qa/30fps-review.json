@@ -1,0 +1,89 @@
+{
+  "status": "pass",
+  "fps": 30,
+  "method": "deterministic parameter tweening",
+  "reviewed_on": "2026-07-14",
+  "stickers": {
+    "s01-ok": {
+      "status": "pass",
+      "frame_count": 38,
+      "duration_ms": 1260,
+      "loop_endpoint_mean_rgba_delta": 0.012
+    },
+    "s02-buxing": {
+      "status": "pass",
+      "frame_count": 37,
+      "duration_ms": 1240,
+      "loop_endpoint_mean_rgba_delta": 0.0
+    },
+    "s03-wuyu": {
+      "status": "pass",
+      "frame_count": 40,
+      "duration_ms": 1320,
+      "loop_endpoint_mean_rgba_delta": 0.1252
+    },
+    "s04-xiaosi": {
+      "status": "pass",
+      "frame_count": 47,
+      "duration_ms": 1580,
+      "loop_endpoint_mean_rgba_delta": 0.1012
+    },
+    "s05-xiexie": {
+      "status": "pass",
+      "frame_count": 40,
+      "duration_ms": 1340,
+      "loop_endpoint_mean_rgba_delta": 0.0129
+    },
+    "s06-meishi": {
+      "status": "pass",
+      "frame_count": 40,
+      "duration_ms": 1320,
+      "loop_endpoint_mean_rgba_delta": 0.8034
+    },
+    "s07-jiayou": {
+      "status": "pass",
+      "frame_count": 38,
+      "duration_ms": 1260,
+      "loop_endpoint_mean_rgba_delta": 1.7413
+    },
+    "s08-xinkule": {
+      "status": "pass",
+      "frame_count": 43,
+      "duration_ms": 1420,
+      "loop_endpoint_mean_rgba_delta": 0.2225
+    },
+    "s09-lihai": {
+      "status": "pass",
+      "frame_count": 37,
+      "duration_ms": 1220,
+      "loop_endpoint_mean_rgba_delta": 0.1352
+    },
+    "s10-baoqian": {
+      "status": "pass",
+      "frame_count": 43,
+      "duration_ms": 1420,
+      "loop_endpoint_mean_rgba_delta": 0.0073
+    },
+    "s11-zhendejiade": {
+      "status": "pass",
+      "frame_count": 41,
+      "duration_ms": 1380,
+      "loop_endpoint_mean_rgba_delta": 1.5691
+    },
+    "s12-wanan": {
+      "status": "pass",
+      "frame_count": 47,
+      "duration_ms": 1560,
+      "loop_endpoint_mean_rgba_delta": 0.3929
+    }
+  },
+  "visual_review": {
+    "status": "pass",
+    "notes": [
+      "S01、S11 上缘白线已覆盖；S02 珊瑚红连续圆角轮廓与真实内芯对齐，外框未染色。",
+      "S04 已放慢至 1580 ms，双眼只随主体波浪局部微晃，hhh! 同步浮现；S09 眼形切换及其余动作均无重影、撕裂或身份漂移。",
+      "S12 暗灰青核心参照 S10 的降亮方向进一步加深，内芯边界准确，直立收尾语义更明显。",
+      "12 张循环端点、透明边缘、语义停留与文字位置通过人工复审。"
+    ]
+  }
+}

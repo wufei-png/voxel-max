@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "fps": 30,
+  "frame_count": 37,
+  "duration_ms": 1220,
+  "frame_duration_ms_range": [
+    32,
+    33
+  ],
+  "loop_endpoint_mean_rgba_delta": 0.1352,
+  "checks": {
+    "nominal_fps_is_30": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_matches_authored_timing": true,
+    "loop_endpoint_mean_rgba_delta_below_8": true
+  },
+  "visual_review": {
+    "status": "pass",
+    "notes": ["眼形改为干净离散切换，已消除双眼重影；后仰和文字补间连续。"]
+  }
+}

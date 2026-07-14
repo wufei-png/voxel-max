@@ -1,0 +1,88 @@
+{
+  "status": "ready_for_submission",
+  "verified_on": "2026-07-14",
+  "title": "方芯回你了",
+  "introduction": "方芯不只会上班，也会认真回你：同意、拒绝、笑死、感谢、鼓励，以及好好说晚安。",
+  "distribution": "free",
+  "artist_and_copyright": "same_submitter_profile_as_shangbanzhong_managed_outside_repository",
+  "spec_url": "https://sticker.weixin.qq.com/cgi-bin/mmemoticon-bin/readtemplate?t=guide/index.html#/makingSpecifications",
+  "items": [
+    {
+      "number": "01",
+      "slug": "ok",
+      "meaning": "好的",
+      "source_package": "s01-ok"
+    },
+    {
+      "number": "02",
+      "slug": "buxing",
+      "meaning": "不行",
+      "source_package": "s02-buxing"
+    },
+    {
+      "number": "03",
+      "slug": "wuyu",
+      "meaning": "无语",
+      "source_package": "s03-wuyu"
+    },
+    {
+      "number": "04",
+      "slug": "xiaosi",
+      "meaning": "笑死",
+      "source_package": "s04-xiaosi"
+    },
+    {
+      "number": "05",
+      "slug": "xiexie",
+      "meaning": "谢谢",
+      "source_package": "s05-xiexie"
+    },
+    {
+      "number": "06",
+      "slug": "meishi",
+      "meaning": "没事",
+      "source_package": "s06-meishi"
+    },
+    {
+      "number": "07",
+      "slug": "jiayou",
+      "meaning": "加油",
+      "source_package": "s07-jiayou"
+    },
+    {
+      "number": "08",
+      "slug": "xinkule",
+      "meaning": "辛苦了",
+      "source_package": "s08-xinkule"
+    },
+    {
+      "number": "09",
+      "slug": "lihai",
+      "meaning": "厉害",
+      "source_package": "s09-lihai"
+    },
+    {
+      "number": "10",
+      "slug": "baoqian",
+      "meaning": "抱歉",
+      "source_package": "s10-baoqian"
+    },
+    {
+      "number": "11",
+      "slug": "zhendejiade",
+      "meaning": "真的假的",
+      "source_package": "s11-zhendejiade"
+    },
+    {
+      "number": "12",
+      "slug": "wanan",
+      "meaning": "晚安",
+      "source_package": "s12-wanan"
+    }
+  ],
+  "brand_assets": {
+    "cover": "cover.png",
+    "chat_icon": "chat-icon.png",
+    "banner": "banner.png"
+  }
+}

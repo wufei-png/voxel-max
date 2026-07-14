@@ -1,0 +1,94 @@
+{
+  "status": "pass",
+  "checks": {
+    "frame_count_is_5": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_in_pack_range": true,
+    "semantic_hold_at_least_500_ms": true,
+    "loop_endpoint_mean_rgba_delta_below_8": true
+  },
+  "frames": [
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        121,
+        88,
+        904,
+        947
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10967
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        115,
+        68,
+        910,
+        941
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10979
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        105,
+        40,
+        920,
+        933
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10967
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        98,
+        24,
+        926,
+        929
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10940
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        121,
+        85,
+        905,
+        946
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10953
+    }
+  ],
+  "loop_endpoint_mean_rgba_delta": 2.7757,
+  "visual_review": {
+    "status": "pass",
+    "reviewed_on": "2026-07-14",
+    "notes": ["黄色贴色上缘已补齐，不再残留白线；单侧审视、文字和小尺寸身份稳定。"]
+  }
+}

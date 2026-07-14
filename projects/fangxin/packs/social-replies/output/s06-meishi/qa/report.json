@@ -1,0 +1,94 @@
+{
+  "status": "pass",
+  "checks": {
+    "frame_count_is_5": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_in_pack_range": true,
+    "semantic_hold_at_least_500_ms": true,
+    "loop_endpoint_mean_rgba_delta_below_8": true
+  },
+  "frames": [
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        135,
+        124,
+        889,
+        950
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10932
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        128,
+        107,
+        896,
+        950
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 11128
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        118,
+        85,
+        907,
+        950
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 12260
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        122,
+        94,
+        903,
+        950
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10175
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        134,
+        120,
+        891,
+        950
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10865
+    }
+  ],
+  "loop_endpoint_mean_rgba_delta": 3.1948,
+  "visual_review": {
+    "status": "pass",
+    "reviewed_on": "2026-07-14",
+    "notes": ["青白实体贴色逐像素贴合真实内芯；本体恢复动作、文字和循环稳定。"]
+  }
+}

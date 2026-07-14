@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "fps": 30,
+  "frame_count": 47,
+  "duration_ms": 1580,
+  "frame_duration_ms_range": [
+    33,
+    34
+  ],
+  "loop_endpoint_mean_rgba_delta": 0.1012,
+  "checks": {
+    "nominal_fps_is_30": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_matches_authored_timing": true,
+    "loop_endpoint_mean_rgba_delta_below_8": true
+  },
+  "visual_review": {
+    "status": "pass",
+    "notes": [
+      "放慢至 1580 ms 后，反相波浪、双眼同向局部微晃和 hhh! 浮现连续协调，无轮廓重影、材质撕裂或独立眼部动作。"
+    ]
+  }
+}

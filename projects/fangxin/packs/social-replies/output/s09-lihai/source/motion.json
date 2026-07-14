@@ -1,0 +1,116 @@
+{
+  "id": "s09-lihai",
+  "prompt": "主体短促后仰，双眼从半闭前态睁回常态最大包围框，配合“厉害”表达赞赏。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1220,
+  "identity_lock": {
+    "subject": "方芯 / Voxel Max",
+    "fixed": [
+      "右上向内缺角",
+      "中央圆角方形状态核心及外框",
+      "青绿色 2.5D 圆角方块本体",
+      "两侧深色实体眼部模块",
+      "常态无手脚、无嘴、无眉毛"
+    ],
+    "forbidden": [
+      "缺角镜像、消失或被勾填平",
+      "核心拉成长条或移出鼻位",
+      "主体整体变色",
+      "新增肢体、场景、第二主体或复杂 UI"
+    ]
+  },
+  "generation_plan": {
+    "approved_bases": [
+      "work/anchors/rgba/half-eyes-rgba.png",
+      "work/anchors/rgba/neutral-rgba.png"
+    ],
+    "new_generated_anchor": false,
+    "deterministic": [
+      "approved eye-anchor switch",
+      "top-led recoil warp",
+      "cyan core pulse",
+      "exact recessed text",
+      "timing"
+    ]
+  },
+  "semantic_hold_frame": "frames/003.png",
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 160,
+      "description": "半闭前态、核心低亮，文字“厉害”开始出现。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 140,
+      "description": "双眼睁回常态方眼，主体开始后仰。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 160,
+      "description": "上部向后打开并上提约 2%，核心快速提亮。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 600,
+      "description": "常态最大眼形、短促后仰姿态和“厉害”稳定停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 160,
+      "description": "回到接近首帧的半闭前态后循环。"
+    }
+  ],
+  "render": {
+    "fps": 30,
+    "method": "deterministic parameter tweening",
+    "transition_window_ms_max": 120,
+    "frame_dir": "rendered-frames",
+    "frame_count": 37,
+    "frame_durations_ms": [
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      32,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33
+    ],
+    "total_duration_ms": 1220
+  }
+}

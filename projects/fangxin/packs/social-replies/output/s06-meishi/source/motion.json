@@ -1,0 +1,115 @@
+{
+  "id": "s06-meishi",
+  "prompt": "主体从轻微内缩平滑恢复稳定，配合青白核心和确定性文字“没事”表达安抚。",
+  "reference_image": "projects/fangxin/identity/masters/fangxin-v6.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "loop": true,
+  "total_duration_ms": 1320,
+  "identity_lock": {
+    "subject": "方芯 / Voxel Max",
+    "fixed": [
+      "右上向内缺角",
+      "中央圆角方形状态核心及外框",
+      "青绿色 2.5D 圆角方块本体",
+      "两侧深色实体眼部模块",
+      "常态无手脚、无嘴、无眉毛"
+    ],
+    "forbidden": [
+      "缺角镜像、消失或被勾填平",
+      "核心拉成长条或移出鼻位",
+      "主体整体变色",
+      "新增肢体、场景、第二主体或复杂 UI"
+    ]
+  },
+  "generation_plan": {
+    "approved_base": "work/anchors/rgba/neutral-rgba.png",
+    "new_generated_anchor": false,
+    "deterministic": [
+      "uniform inward scale and recovery",
+      "cyan core stabilization",
+      "exact recessed text",
+      "timing"
+    ]
+  },
+  "semantic_hold_frame": "frames/003.png",
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "duration_ms": 180,
+      "description": "主体轻微内缩约 3.5%，核心低亮，文字开始出现。"
+    },
+    {
+      "file": "frames/001.png",
+      "duration_ms": 180,
+      "description": "主体恢复到约 98.5%，核心逐渐稳定。"
+    },
+    {
+      "file": "frames/002.png",
+      "duration_ms": 180,
+      "description": "主体轻微越过基线约 1%，形成柔和释然回弹。"
+    },
+    {
+      "file": "frames/003.png",
+      "duration_ms": 600,
+      "description": "主体回到常态，青白核心和“没事”稳定停留。"
+    },
+    {
+      "file": "frames/004.png",
+      "duration_ms": 180,
+      "description": "回到接近首帧的轻微内缩态后循环。"
+    }
+  ],
+  "render": {
+    "fps": 30,
+    "method": "deterministic parameter tweening",
+    "transition_window_ms_max": 120,
+    "frame_dir": "rendered-frames",
+    "frame_count": 40,
+    "frame_durations_ms": [
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33,
+      33
+    ],
+    "total_duration_ms": 1320
+  }
+}

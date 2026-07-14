@@ -1,0 +1,94 @@
+{
+  "status": "pass",
+  "checks": {
+    "frame_count_is_5": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_in_pack_range": true,
+    "semantic_hold_at_least_500_ms": true,
+    "loop_endpoint_mean_rgba_delta_below_8": true
+  },
+  "frames": [
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        108,
+        155,
+        916,
+        925
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 8927
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        100,
+        193,
+        925,
+        939
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 7889
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        94,
+        84,
+        931,
+        895
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 8766
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        100,
+        108,
+        925,
+        907
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 8263
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        104,
+        148,
+        921,
+        927
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 8890
+    }
+  ],
+  "loop_endpoint_mean_rgba_delta": 5.8744,
+  "visual_review": {
+    "status": "pass",
+    "reviewed_on": "2026-07-14",
+    "notes": ["前倾锚点的青白实体贴色贴合真实内芯；推进动作、缺角和身份比例稳定。"]
+  }
+}

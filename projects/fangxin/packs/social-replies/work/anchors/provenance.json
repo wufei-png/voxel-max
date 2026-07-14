@@ -1,0 +1,32 @@
+{
+  "neutral-rgba.png": {
+    "source": "projects/fangxin/packs/shangbanzhong/work/v6-neutral-rgba-1024.png",
+    "role": "本包确定性动作的身份稳定工作锚点",
+    "authority": "工作资产；不替代 projects/fangxin/identity/masters/fangxin-v6.png"
+  },
+  "half-eyes-rgba.png": {
+    "source": "projects/fangxin/packs/shangbanzhong/work/s02-working-eyes-rgba.png",
+    "role": "S02、S03、S09、S12 的半闭实体眼工作锚点",
+    "authority": "已在首包验证的工作资产副本；只服务本包"
+  },
+  "happy-eyes-rgba.png": {
+    "source": "projects/fangxin/packs/shangbanzhong/work/v6-happy-rgba.png",
+    "role": "S04 笑死的实体开心眼工作锚点",
+    "authority": "已在首包验证的工作资产副本；只服务本包"
+  },
+  "focus-eyes-rgba.png": {
+    "source": "projects/fangxin/packs/shangbanzhong/work/s03-thinking-eyes-rgba.png",
+    "role": "S11 真的假的的专注审视眼工作锚点",
+    "authority": "已在首包验证的工作资产副本；只服务本包"
+  },
+  "s03-wuyu-generated-v2-rgba.png": {
+    "source": "source-chroma/s03-wuyu-generated-v2.png",
+    "role": "被拒绝的整图生成尝试，只保留为软塌轮廓参考",
+    "authority": "rejected"
+  },
+  "s07-jiayou-generated-v1-rgba.png": {
+    "source": "source-chroma/s07-jiayou-generated-v1.png",
+    "role": "S07 加油试片专用前倾锚点",
+    "authority": "approved-for-pilot-only"
+  }
+}

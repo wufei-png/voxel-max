@@ -1,0 +1,94 @@
+{
+  "status": "pass",
+  "checks": {
+    "frame_count_is_5": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_in_pack_range": true,
+    "semantic_hold_at_least_500_ms": true,
+    "loop_endpoint_mean_rgba_delta_below_8": true
+  },
+  "frames": [
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        124,
+        100,
+        901,
+        952
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 11283
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        130,
+        118,
+        894,
+        959
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 11081
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        135,
+        135,
+        889,
+        965
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10939
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        137,
+        142,
+        887,
+        968
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 10922
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        124,
+        102,
+        899,
+        953
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 11438
+    }
+  ],
+  "loop_endpoint_mean_rgba_delta": 2.4345,
+  "visual_review": {
+    "status": "pass",
+    "reviewed_on": "2026-07-14",
+    "notes": ["灰青实体贴色逐像素贴合真实内芯；内收下沉、文字和身份稳定。"]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "status": "pass",
+  "reviewed_on": "2026-07-14",
+  "scope": [
+    "S01 OK",
+    "S02 不行",
+    "S03 无语",
+    "S04 笑死",
+    "S05 谢谢",
+    "S06 没事",
+    "S07 加油",
+    "S08 辛苦了",
+    "S09 厉害",
+    "S10 抱歉",
+    "S11 真的假的",
+    "S12 晚安"
+  ],
+  "evidence": {
+    "pack_contact_sheet": "pack-contact-sheet.png",
+    "semantic_comparison": "semantic-comparison.png",
+    "per_sticker_contact_sheets": "../output/<sticker>/qa/contact-sheet.png",
+    "per_sticker_small_size_reviews": "../output/<sticker>/qa/small-size-review.png",
+    "per_sticker_animated_previews": "../output/<sticker>/qa/preview.gif",
+    "per_sticker_reports": "../output/<sticker>/qa/report.json",
+    "frame_rate_comparison": "frame-rate-comparison/manifest.json",
+    "final_30fps_review": "30fps-review.json",
+    "per_sticker_30fps_reports": "../output/<sticker>/qa/30fps-report.json"
+  },
+  "automatic_gate": {
+    "frame_count": 5,
+    "canvas": "1024x1024 RGBA",
+    "duration_ms": "1200-2000",
+    "semantic_hold_ms_min": 500,
+    "loop_endpoint_mean_rgba_delta_max": 8,
+    "transparent_borders": true,
+    "exact_inner_core_tint_mask": true
+  },
+  "semantic_separation": {
+    "s01_vs_first_pack_received": "pass；许可使用核心右下小勾，不复用文字确认和开心回弹。",
+    "s02_vs_s11": "pass；S02 快速左右拒绝、红核心和核心下方机身文字 NO，S11 慢速单侧审视且为黄核心。",
+    "s03_vs_failure_states": "pass；上重下轻软塌，不是过热、困倦、装死或刚性倾斜。",
+    "s04_vs_first_pack_done": "pass；放慢的横向波浪、同步眼部微晃和 hhh! 表达大笑，核心不变绿且无 DONE。",
+    "s05_vs_s06": "pass；S05 核心扩亮表达感谢，S06 本体内缩后恢复表达安抚。",
+    "s07_vs_s08": "pass；S07 面向未来推进鼓励，S08 慢前倾认可既有投入。",
+    "s09_vs_first_pack_done": "pass；半闭到睁眼并后仰赞赏对方，不使用绿色完成语法。",
+    "s10_vs_s06": "pass；S10 持续内收下沉主动道歉，S06 恢复到稳定接受道歉。",
+    "s12_vs_first_pack_play_dead": "pass；明显加深的暗灰青核心配合直立下沉和降亮，不进入趴平装死区间。"
+  },
+  "core_alignment_correction": {
+    "status": "pass",
+    "scope": "S01、S02、S04-S12；S03 保持既有核心处理",
+    "decision": "实体贴色改为真实内芯像素遮罩；S01/S11 补齐上缘白线，S02 用近白筛选定位内芯并生成连续圆角遮罩、柔光降至 25%，S05 只扩张柔光场，S12 在严格内芯遮罩内增强暗灰青降亮。"
+  },
+  "frame_rate_review": {
+    "status": "selected_and_built",
+    "representatives": ["S02 不行", "S05 谢谢", "S11 真的假的"],
+    "variants_fps": [20, 30, 40],
+    "selected_fps": 30,
+    "method": "从确定性动作参数重绘中间姿态；不使用重复帧或光流补帧。",
+    "full_pack_review": "pass；12 张共 37～47 帧，单帧 33～34 ms，自动与人工 QA 通过。"
+  },
+  "production_decision": "最终采样率锁定为 30 fps；12 张平台无关源包、动画 WebP、参数化中间帧与最终全包 QA 完成。"
+}

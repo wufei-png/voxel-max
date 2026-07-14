@@ -1,0 +1,97 @@
+{
+  "status": "pass",
+  "checks": {
+    "frame_count_is_5": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_in_pack_range": true,
+    "semantic_hold_at_least_500_ms": true,
+    "loop_endpoint_mean_rgba_delta_below_8": true
+  },
+  "frames": [
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        122,
+        97,
+        902,
+        953
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 9851
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        122,
+        104,
+        902,
+        960
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 9851
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        122,
+        114,
+        902,
+        970
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 9851
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        122,
+        120,
+        902,
+        976
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 9851
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        122,
+        98,
+        902,
+        954
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 9851
+    }
+  ],
+  "loop_endpoint_mean_rgba_delta": 2.0522,
+  "visual_review": {
+    "status": "pass",
+    "identity": "主体始终直立，只做缓慢下沉和整体降亮；缺角、核心外框、眼距、色相与材质稳定。",
+    "meaning": "横眼、明显加深的暗灰青核心、慢下沉和“晚安”形成夜间收尾；未趴平、未进入首包装死动作区间。",
+    "loop": "深度下沉后回到浅下沉前态，端点平均 RGBA 差 2.0522，低于门槛且无明显跳变。",
+    "alpha": "所有帧边界透明，加深核心和整体降亮后浅深背景均无白边、闪烁或工作底污染。",
+    "small_size": "240×240 下横眼、暗核心和文字清楚；50×50 下闭眼、核心深浅差、直立轮廓与缺角仍可辨。"
+  }
+}

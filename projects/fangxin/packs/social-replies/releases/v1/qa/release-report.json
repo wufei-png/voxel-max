@@ -1,0 +1,267 @@
+{
+  "status": "pass",
+  "automatic_review": {
+    "status": "pass",
+    "checks": {
+      "wechat_has_twelve_stickers": true,
+      "all_sticker_exports_pass": true,
+      "all_stickers_under_500000_bytes": true,
+      "all_stickers_240_square_and_looping": true,
+      "cover_matches_limits": true,
+      "chat_icon_matches_limits": true,
+      "banner_matches_limits": true,
+      "wechat_copy_matches_limits": true
+    }
+  },
+  "visual_review": {
+    "status": "pass",
+    "evidence": "visual-review.json"
+  },
+  "wechat": {
+    "stickers": [
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s01-ok/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 434065,
+        "frame_count": 38,
+        "duration_ms": 1260,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s02-buxing/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 433356,
+        "frame_count": 37,
+        "duration_ms": 1230,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s03-wuyu/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 472814,
+        "frame_count": 40,
+        "duration_ms": 1330,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s04-xiaosi/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 430323,
+        "frame_count": 38,
+        "duration_ms": 1580,
+        "frame_duration_ms_range": [
+          40,
+          50
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s05-xiexie/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 479497,
+        "frame_count": 40,
+        "duration_ms": 1330,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s06-meishi/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 411321,
+        "frame_count": 40,
+        "duration_ms": 1330,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s07-jiayou/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 432170,
+        "frame_count": 38,
+        "duration_ms": 1260,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s08-xinkule/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 470373,
+        "frame_count": 43,
+        "duration_ms": 1430,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s09-lihai/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 450635,
+        "frame_count": 37,
+        "duration_ms": 1230,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s10-baoqian/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 450128,
+        "frame_count": 43,
+        "duration_ms": 1430,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s11-zhendejiade/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 463205,
+        "frame_count": 41,
+        "duration_ms": 1360,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      },
+      {
+        "path": "projects/fangxin/packs/social-replies/output/s12-wanan/exports/wechat/sticker.gif",
+        "format": "GIF",
+        "size": [
+          240,
+          240
+        ],
+        "bytes": 479963,
+        "frame_count": 47,
+        "duration_ms": 1560,
+        "frame_duration_ms_range": [
+          30,
+          40
+        ],
+        "loop": 0,
+        "transparent_borders": true
+      }
+    ],
+    "cover": {
+      "path": "projects/fangxin/packs/social-replies/releases/v1/wechat/cover.png",
+      "format": "PNG",
+      "size": [
+        240,
+        240
+      ],
+      "bytes": 50717,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_borders": true,
+      "fully_opaque": false
+    },
+    "chat_icon": {
+      "path": "projects/fangxin/packs/social-replies/releases/v1/wechat/chat-icon.png",
+      "format": "PNG",
+      "size": [
+        50,
+        50
+      ],
+      "bytes": 3515,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_borders": true,
+      "fully_opaque": false
+    },
+    "banner": {
+      "path": "projects/fangxin/packs/social-replies/releases/v1/wechat/banner.png",
+      "format": "PNG",
+      "size": [
+        750,
+        400
+      ],
+      "bytes": 151791,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_borders": false,
+      "fully_opaque": true
+    }
+  }
+}

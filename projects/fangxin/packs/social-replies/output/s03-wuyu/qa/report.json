@@ -1,0 +1,97 @@
+{
+  "status": "pass",
+  "checks": {
+    "frame_count_is_5": true,
+    "all_frames_1024_rgba": true,
+    "all_borders_transparent": true,
+    "duration_in_pack_range": true,
+    "semantic_hold_at_least_500_ms": true,
+    "loop_endpoint_mean_rgba_delta_below_8": true
+  },
+  "frames": [
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        135,
+        95,
+        914,
+        950
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 13156
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        138,
+        97,
+        914,
+        953
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 13289
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        140,
+        98,
+        914,
+        959
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 13263
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        140,
+        98,
+        914,
+        965
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 13369
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        135,
+        95,
+        914,
+        950
+      ],
+      "border_is_transparent": true,
+      "partial_alpha_pixels": 13311
+    }
+  ],
+  "loop_endpoint_mean_rgba_delta": 0.6464,
+  "visual_review": {
+    "status": "pass",
+    "identity": "成品继续使用已验证半闭眼锚点做确定性形变；右上缺角、核心外框、眼距、主体色相和材质稳定，未出现整体刚性旋转。",
+    "meaning": "左上先失去支撑，左下稍后轻微跟随；停留帧左侧上轮廓降幅约为下轮廓两倍，配合半闭眼、低亮核心和“无语”形成低沉无奈，而非困倦、过热或装死。",
+    "loop": "左上主塌、左下跟随并共同回弹，端点平均 RGBA 差 0.6464，无刚性跳转。",
+    "alpha": "所有帧边界透明；浅色和深色背景未见白边或工作底污染。",
+    "small_size": "240×240 下非对称软塌和文字清楚；50×50 下文字不承担阅读任务，但上重下轻的左侧下沉、缺角、核心和无奈眼形仍可辨。"
+  }
+}
