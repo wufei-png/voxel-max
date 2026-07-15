@@ -1,0 +1,108 @@
+{
+  "status": "candidate_review",
+  "item": "s09-kowtow",
+  "canvas": [
+    48,
+    48
+  ],
+  "master_path": "identity/masters/master-v1-32.png",
+  "master_sha256": "c7d0e4f83d6816231bd3d36109c291164e142159dc14cfdedd924fe1a96ec6ed",
+  "variant_order": [
+    "v01-current",
+    "v02-grounded-palms"
+  ],
+  "variants": [
+    {
+      "id": "v01-current",
+      "frame_count": 7,
+      "durations_ms": [
+        400,
+        100,
+        100,
+        100,
+        220,
+        100,
+        380
+      ],
+      "frames": [
+        {
+          "path": "candidates/v01-current/frames/frame-00.png",
+          "sha256": "58fa6428c27b5ed204bf85f6823ea6b6bc65e048edcc65ec11a5d08c48d8a27d"
+        },
+        {
+          "path": "candidates/v01-current/frames/frame-01.png",
+          "sha256": "9f503d589fc287992d77e6f8eb5eb617c9b6541be0472fb489bf0dfd46f2b089"
+        },
+        {
+          "path": "candidates/v01-current/frames/frame-02.png",
+          "sha256": "26311a6aaaab793712079e9aa5413866b33c94de8118044c4938fb95c804723d"
+        },
+        {
+          "path": "candidates/v01-current/frames/frame-03.png",
+          "sha256": "4a04e257d862bb255359aa85fab751fe349adf5d3a218aafe31df22b28f085b0"
+        },
+        {
+          "path": "candidates/v01-current/frames/frame-04.png",
+          "sha256": "58fa6428c27b5ed204bf85f6823ea6b6bc65e048edcc65ec11a5d08c48d8a27d"
+        },
+        {
+          "path": "candidates/v01-current/frames/frame-05.png",
+          "sha256": "d44dc9677b00a5c771d21c730a6935e7988d1d1c7747d2de04276a023dc96b4c"
+        },
+        {
+          "path": "candidates/v01-current/frames/frame-06.png",
+          "sha256": "58fa6428c27b5ed204bf85f6823ea6b6bc65e048edcc65ec11a5d08c48d8a27d"
+        }
+      ]
+    },
+    {
+      "id": "v02-grounded-palms",
+      "frame_count": 7,
+      "durations_ms": [
+        400,
+        100,
+        100,
+        100,
+        220,
+        100,
+        380
+      ],
+      "frames": [
+        {
+          "path": "candidates/v02-grounded-palms/frames/frame-00.png",
+          "sha256": "301a1e72bc0af1345ad0610fb11a9625e617d5a1b77c692b0ea77bfd7033166c"
+        },
+        {
+          "path": "candidates/v02-grounded-palms/frames/frame-01.png",
+          "sha256": "900579a4b969d4f6ceb743a4eb01ce84f143f11e0a82d70c03dd5c1a013a9749"
+        },
+        {
+          "path": "candidates/v02-grounded-palms/frames/frame-02.png",
+          "sha256": "7eda64fd19a2ba49bd3077d51c592755764b3b0e89af1dea9a06294d7649edf8"
+        },
+        {
+          "path": "candidates/v02-grounded-palms/frames/frame-03.png",
+          "sha256": "37d376f76a824d064ea0e6e7d2e1e8813fbc2af3b646286c3d906eb0fe04e3b7"
+        },
+        {
+          "path": "candidates/v02-grounded-palms/frames/frame-04.png",
+          "sha256": "301a1e72bc0af1345ad0610fb11a9625e617d5a1b77c692b0ea77bfd7033166c"
+        },
+        {
+          "path": "candidates/v02-grounded-palms/frames/frame-05.png",
+          "sha256": "b9105bee02a90947c9c0ba3f7e13dfacfa3aa2f632add8bdb8ac83deb65dd766"
+        },
+        {
+          "path": "candidates/v02-grounded-palms/frames/frame-06.png",
+          "sha256": "301a1e72bc0af1345ad0610fb11a9625e617d5a1b77c692b0ea77bfd7033166c"
+        }
+      ]
+    }
+  ],
+  "v02_design": {
+    "removed": "pale impact strips and side impact blocks",
+    "palms": "compact grounded blocks",
+    "forearms": "continuous purple connection from body to palms",
+    "semantic_separation": "frontal symmetry, no keyboard, repeated bow"
+  }
+}

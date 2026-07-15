@@ -1,0 +1,225 @@
+{
+  "status": "candidate_comparison",
+  "pack_id": "work-reactions",
+  "based_on": "work/v3",
+  "borrows_from": "work/v2 raised-hand coordinates",
+  "change_scope": [
+    "s04-meeting"
+  ],
+  "master_path": "identity/masters/master-v1-32.png",
+  "master_sha256": "c7d0e4f83d6816231bd3d36109c291164e142159dc14cfdedd924fe1a96ec6ed",
+  "canvas": [
+    48,
+    48
+  ],
+  "item_order": [
+    "s01-received",
+    "s02-working",
+    "s03-wait",
+    "s04-meeting",
+    "s05-done",
+    "s06-speechless",
+    "s07-crashed",
+    "s08-off-work",
+    "s09-kowtow"
+  ],
+  "labels": {
+    "s01-received": "收到",
+    "s02-working": "工作中",
+    "s03-wait": "稍等",
+    "s04-meeting": "开会中",
+    "s05-done": "搞定了",
+    "s06-speechless": "无语",
+    "s07-crashed": "崩了",
+    "s08-off-work": "下班了",
+    "s09-kowtow": "磕头"
+  },
+  "items": [
+    {
+      "id": "s01-received",
+      "frame_paths": [
+        "s01-received/frames/frame-00.png",
+        "s01-received/frames/frame-01.png",
+        "s01-received/frames/frame-02.png",
+        "s01-received/frames/frame-03.png",
+        "s01-received/frames/frame-04.png"
+      ],
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ],
+      "distinct_poses": 4
+    },
+    {
+      "id": "s02-working",
+      "frame_paths": [
+        "s02-working/frames/frame-00.png",
+        "s02-working/frames/frame-01.png",
+        "s02-working/frames/frame-02.png",
+        "s02-working/frames/frame-03.png",
+        "s02-working/frames/frame-04.png"
+      ],
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ],
+      "distinct_poses": 4
+    },
+    {
+      "id": "s03-wait",
+      "frame_paths": [
+        "s03-wait/frames/frame-00.png",
+        "s03-wait/frames/frame-01.png",
+        "s03-wait/frames/frame-02.png",
+        "s03-wait/frames/frame-03.png",
+        "s03-wait/frames/frame-04.png"
+      ],
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ],
+      "distinct_poses": 4
+    },
+    {
+      "id": "s04-meeting",
+      "frame_paths": [
+        "s04-meeting/frames/frame-00.png",
+        "s04-meeting/frames/frame-01.png",
+        "s04-meeting/frames/frame-02.png",
+        "s04-meeting/frames/frame-03.png",
+        "s04-meeting/frames/frame-04.png"
+      ],
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ],
+      "distinct_poses": 4
+    },
+    {
+      "id": "s05-done",
+      "frame_paths": [
+        "s05-done/frames/frame-00.png",
+        "s05-done/frames/frame-01.png",
+        "s05-done/frames/frame-02.png",
+        "s05-done/frames/frame-03.png",
+        "s05-done/frames/frame-04.png",
+        "s05-done/frames/frame-05.png"
+      ],
+      "durations_ms": [
+        260,
+        90,
+        90,
+        90,
+        120,
+        560
+      ],
+      "distinct_poses": 6
+    },
+    {
+      "id": "s06-speechless",
+      "frame_paths": [
+        "s06-speechless/frames/frame-00.png",
+        "s06-speechless/frames/frame-01.png",
+        "s06-speechless/frames/frame-02.png",
+        "s06-speechless/frames/frame-03.png",
+        "s06-speechless/frames/frame-04.png"
+      ],
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ],
+      "distinct_poses": 4
+    },
+    {
+      "id": "s07-crashed",
+      "frame_paths": [
+        "s07-crashed/frames/frame-00.png",
+        "s07-crashed/frames/frame-01.png",
+        "s07-crashed/frames/frame-02.png",
+        "s07-crashed/frames/frame-03.png",
+        "s07-crashed/frames/frame-04.png"
+      ],
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ],
+      "distinct_poses": 4
+    },
+    {
+      "id": "s08-off-work",
+      "frame_paths": [
+        "s08-off-work/frames/frame-00.png",
+        "s08-off-work/frames/frame-01.png",
+        "s08-off-work/frames/frame-02.png",
+        "s08-off-work/frames/frame-03.png",
+        "s08-off-work/frames/frame-04.png",
+        "s08-off-work/frames/frame-05.png",
+        "s08-off-work/frames/frame-06.png",
+        "s08-off-work/frames/frame-07.png",
+        "s08-off-work/frames/frame-08.png",
+        "s08-off-work/frames/frame-09.png",
+        "s08-off-work/frames/frame-10.png",
+        "s08-off-work/frames/frame-11.png"
+      ],
+      "durations_ms": [
+        400,
+        80,
+        80,
+        100,
+        100,
+        100,
+        100,
+        100,
+        120,
+        120,
+        180,
+        600
+      ],
+      "distinct_poses": 12
+    },
+    {
+      "id": "s09-kowtow",
+      "frame_paths": [
+        "s09-kowtow/frames/frame-00.png",
+        "s09-kowtow/frames/frame-01.png",
+        "s09-kowtow/frames/frame-02.png",
+        "s09-kowtow/frames/frame-03.png",
+        "s09-kowtow/frames/frame-04.png",
+        "s09-kowtow/frames/frame-05.png",
+        "s09-kowtow/frames/frame-06.png"
+      ],
+      "durations_ms": [
+        400,
+        100,
+        100,
+        100,
+        220,
+        100,
+        380
+      ],
+      "distinct_poses": 5
+    }
+  ],
+  "meeting_notes": {
+    "headset_and_microphone": "pixel-identical to v3",
+    "raised_hand": "pixel-identical coordinates to v2"
+  }
+}

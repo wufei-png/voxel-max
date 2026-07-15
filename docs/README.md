@@ -9,14 +9,14 @@
 | 内部 ID | 状态 | 当前事实 | 入口 |
 | --- | --- | --- | --- |
 | `fangxin` | 第二套微信候选待提交 | 方芯身份与 v6 母版已锁定；《方芯上班中》已通过微信发布链路；《方芯回你了》12 张 GIF、品牌素材与发布 QA 已完成，状态为 `ready_for_submission` | [`../projects/fangxin/README.md`](../projects/fangxin/README.md) |
-| `pixel-human` | 身份试片已通过 | 公开名“像素小同事”、A3 身份母版和严格无脸规则已锁定；三张代表性动态试片通过，可以展开首套工作反应包 | [`../projects/pixel-human/README.md`](../projects/pixel-human/README.md) |
+| `pixel-human` | 首包微信发布包待提交 | 公开名“像素小同事”已锁定；《小同事上班记》采用 `收到=v05`、`开会中=v5`、`磕头=v6`，最终微信 v1 发布包已通过 QA | [`../projects/pixel-human/README.md`](../projects/pixel-human/README.md) |
 | `motherboard2` | 概念候选 | 只保留青绿色 2.5D 方形生物概念图；尚未命名、没有批准母版，不进入生产 | [`../projects/motherboard2/README.md`](../projects/motherboard2/README.md) |
 | `$animated-sticker-maker` | `v0.6` | 已补齐自包含帧路径、可选已审核高帧率渲染轨和显式帧率/色数降级；待像素小人完成跨风格试片后评估 `v1` | [`current/skill-contract.md`](current/skill-contract.md) |
 
 ## 当前工作
 
 1. 提交者在微信后台复核实时规格并上传《方芯回你了》v1 候选；平台正式受理并通过后更新为 `published`，不修改已完成的《方芯上班中》。
-2. 基于已通过的像素小同事身份母版和三张试片，制作首套工作反应包。
+2. 在微信后台上传《小同事上班记》v1 免费专辑；平台正式受理并通过后更新为 `published`。
 3. `motherboard2` 保持概念状态，除非用户明确启动该主体。
 
 ## 权威顺序

@@ -1,0 +1,187 @@
+{
+  "status": "ready_for_submission",
+  "platform": "wechat_sticker_album",
+  "verified_on": "2026-07-15",
+  "character_name": "像素小同事",
+  "pack_name": "小同事上班记",
+  "pack_intro": "像素小同事陪你过完一个工作日：收到、忙碌、开会、搞定、崩溃，再准时下班。",
+  "release_mode": "free",
+  "appreciation": false,
+  "sticker_count": 9,
+  "stickers": [
+    {
+      "id": "s01-received",
+      "label": "收到",
+      "path": "stickers/01-received.gif",
+      "sha256": "93819aa7e9593304d51d165d897e7a996dc361bc9fc683c64bc08597d3f40477",
+      "bytes": 14348,
+      "frame_count": 6,
+      "durations_ms": [
+        90,
+        110,
+        110,
+        180,
+        220,
+        620
+      ]
+    },
+    {
+      "id": "s02-working",
+      "label": "工作中",
+      "path": "stickers/02-working.gif",
+      "sha256": "f882f5e08b33ddd039feab7d21bc5b2abcc3f21f6e2b44a95b5b6be7d49c5a59",
+      "bytes": 9496,
+      "frame_count": 5,
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ]
+    },
+    {
+      "id": "s03-wait",
+      "label": "稍等",
+      "path": "stickers/03-wait.gif",
+      "sha256": "6434728903cae8f34e134d3545063ce6df7528a94b2d58866f568ee8b5a9339a",
+      "bytes": 9151,
+      "frame_count": 5,
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ]
+    },
+    {
+      "id": "s04-meeting",
+      "label": "开会中",
+      "path": "stickers/04-meeting.gif",
+      "sha256": "133360bce4b3492feba0f24ee664318a4e8b961ddc11b1ff8f69ac50fc1d7abf",
+      "bytes": 10636,
+      "frame_count": 5,
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ]
+    },
+    {
+      "id": "s05-done",
+      "label": "搞定了",
+      "path": "stickers/05-done.gif",
+      "sha256": "f1a391000740cf7f1699dbd98d4901428ea0e83e00e8117d402af66a315eaf24",
+      "bytes": 12267,
+      "frame_count": 6,
+      "durations_ms": [
+        260,
+        90,
+        90,
+        90,
+        120,
+        560
+      ]
+    },
+    {
+      "id": "s06-speechless",
+      "label": "无语",
+      "path": "stickers/06-speechless.gif",
+      "sha256": "34468921e1e3c34d65881169cbd41b04ddc3ff33ca2d6aabd4d86b6ee6a00df8",
+      "bytes": 9415,
+      "frame_count": 5,
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ]
+    },
+    {
+      "id": "s07-crashed",
+      "label": "崩了",
+      "path": "stickers/07-crashed.gif",
+      "sha256": "9ee61344df2e43029a02c6514d49d0e1f59487f3f5d9c7e9805cc3620740ba49",
+      "bytes": 9180,
+      "frame_count": 5,
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ]
+    },
+    {
+      "id": "s08-off-work",
+      "label": "下班了",
+      "path": "stickers/08-off-work.gif",
+      "sha256": "abff88fbed00e66aef1cfba2292ccae12dbe8d0b8091c48c4efc5bc0f18fe745",
+      "bytes": 28366,
+      "frame_count": 12,
+      "durations_ms": [
+        400,
+        80,
+        80,
+        100,
+        100,
+        100,
+        100,
+        100,
+        120,
+        120,
+        180,
+        600
+      ]
+    },
+    {
+      "id": "s09-kowtow",
+      "label": "磕头",
+      "path": "stickers/09-kowtow.gif",
+      "sha256": "895e8a0244fa21fee14a74fbf0df3f6719f0f7b54745e604892a70c2eb184d9f",
+      "bytes": 10560,
+      "frame_count": 7,
+      "durations_ms": [
+        400,
+        100,
+        100,
+        100,
+        220,
+        100,
+        380
+      ]
+    }
+  ],
+  "brand_assets": [
+    {
+      "path": "brand/banner.png",
+      "sha256": "50e76baacd9172c1d0511685191c35aaf84ec3d21b96ab4d949131229297471a",
+      "bytes": 2380
+    },
+    {
+      "path": "brand/cover.png",
+      "sha256": "c2f640dfd0a987e1c716be3cd85d1a3c71e73447ee9f87b28fcbc1f3a766910e",
+      "bytes": 785
+    },
+    {
+      "path": "brand/tab.png",
+      "sha256": "a93a6b538692b41bac3af673d4db3cdde59de7aea58f7973723f7ba19f51064e",
+      "bytes": 201
+    }
+  ],
+  "qa": {
+    "status": "passed",
+    "checks": [
+      "9 GIF files at 240x240",
+      "each GIF <= 500 KB",
+      "source timing and frame count preserved",
+      "infinite loop enabled",
+      "banner, cover, and tab dimensions and byte limits",
+      "transparent cover and tab backgrounds"
+    ]
+  }
+}

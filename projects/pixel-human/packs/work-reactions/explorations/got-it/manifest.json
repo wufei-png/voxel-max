@@ -1,0 +1,313 @@
+{
+  "status": "exploration_only",
+  "canvas": [
+    48,
+    48
+  ],
+  "alpha": "binary",
+  "resampling": "nearest-neighbor",
+  "master_path": "identity/masters/master-v1-32.png",
+  "master_sha256": "c7d0e4f83d6816231bd3d36109c291164e142159dc14cfdedd924fe1a96ec6ed",
+  "variant_order": [
+    "v01-chamfer-typewriter",
+    "v02-split-word-chips",
+    "v03-comic-burst",
+    "v04-slide-caption",
+    "v05-chat-card",
+    "v06-right-linked-chat-card",
+    "v07-original-distance-chat-card"
+  ],
+  "variants": [
+    {
+      "id": "v01-chamfer-typewriter",
+      "frame_count": 8,
+      "durations_ms": [
+        100,
+        100,
+        80,
+        80,
+        100,
+        100,
+        140,
+        560
+      ],
+      "frames": [
+        {
+          "path": "candidates/v01-chamfer-typewriter/frames/frame-00.png",
+          "sha256": "c5056739536f544f56f889eca116ae0f9778a6b90d3bae7d6641897586941295"
+        },
+        {
+          "path": "candidates/v01-chamfer-typewriter/frames/frame-01.png",
+          "sha256": "7a9632df9f3e2ad1fac61ed1f3b5c8f32b7e4f7ac692af321f7b557e43d39e16"
+        },
+        {
+          "path": "candidates/v01-chamfer-typewriter/frames/frame-02.png",
+          "sha256": "337496a82adc471e7a475f6c31cffaf9ebe412fcee5c0a0db63999a8ec8773c8"
+        },
+        {
+          "path": "candidates/v01-chamfer-typewriter/frames/frame-03.png",
+          "sha256": "a1e0074d74aedf052cde1cc72dc2561c9ba188a94a84ac64b31e82159fe8dfed"
+        },
+        {
+          "path": "candidates/v01-chamfer-typewriter/frames/frame-04.png",
+          "sha256": "d6c276397597cf444dffdfc33110c02691886a2755408228c0736d0c9502da43"
+        },
+        {
+          "path": "candidates/v01-chamfer-typewriter/frames/frame-05.png",
+          "sha256": "4d849d2635b367d37d00d9c2649ec955d82b49f6abac8046b5f82432a1f28967"
+        },
+        {
+          "path": "candidates/v01-chamfer-typewriter/frames/frame-06.png",
+          "sha256": "6e58699a3c8efadce462124eface59f6333e190975d13c5c1a0906c222bc6ac7"
+        },
+        {
+          "path": "candidates/v01-chamfer-typewriter/frames/frame-07.png",
+          "sha256": "d9ceadd3fc4f964a5b693a39cacbd41ac7b1e51620895cc92e89d63142ec9c72"
+        }
+      ]
+    },
+    {
+      "id": "v02-split-word-chips",
+      "frame_count": 6,
+      "durations_ms": [
+        100,
+        180,
+        100,
+        150,
+        220,
+        600
+      ],
+      "frames": [
+        {
+          "path": "candidates/v02-split-word-chips/frames/frame-00.png",
+          "sha256": "e3260be6d92723bcba4d69787e5c4be84d2ced1ee5ac1053b43265c7ba29f846"
+        },
+        {
+          "path": "candidates/v02-split-word-chips/frames/frame-01.png",
+          "sha256": "dbd4aa21eb31b18dcb7950db258a3187d56247e0ad91e35b88c531ad081857ab"
+        },
+        {
+          "path": "candidates/v02-split-word-chips/frames/frame-02.png",
+          "sha256": "b4530d30c52b3c845973b6a8396dc4e19d3b09f0e2d56ebef020c9c2684a36d0"
+        },
+        {
+          "path": "candidates/v02-split-word-chips/frames/frame-03.png",
+          "sha256": "35efc16844b36b20830dbf38afa9d293e050bda8d35496fbe784aef9c8ad275e"
+        },
+        {
+          "path": "candidates/v02-split-word-chips/frames/frame-04.png",
+          "sha256": "df1696557631e7e770091cc9674d7ffd96096fc44c751e2aa0c2997d7b01cd1b"
+        },
+        {
+          "path": "candidates/v02-split-word-chips/frames/frame-05.png",
+          "sha256": "66c924001357d297485825758c0d8c60b61733eb9b86125eb81e97ce20ef54bb"
+        }
+      ]
+    },
+    {
+      "id": "v03-comic-burst",
+      "frame_count": 6,
+      "durations_ms": [
+        90,
+        100,
+        110,
+        160,
+        240,
+        620
+      ],
+      "frames": [
+        {
+          "path": "candidates/v03-comic-burst/frames/frame-00.png",
+          "sha256": "0ead5af44f9dba436362ff0aee1f73475fb25a15603ddf73f6940879437ec173"
+        },
+        {
+          "path": "candidates/v03-comic-burst/frames/frame-01.png",
+          "sha256": "ace9446a7dc66b15a2d17e6e50753a3f92e05710fcd0f45fbda61861ffe2b25d"
+        },
+        {
+          "path": "candidates/v03-comic-burst/frames/frame-02.png",
+          "sha256": "e1322991a9ad671f4c5a1b244b19dca1cd84d2af72deb26ae9c551d6e25c74cf"
+        },
+        {
+          "path": "candidates/v03-comic-burst/frames/frame-03.png",
+          "sha256": "bac6c0c7f16ae4f417e6215ce7cb2236fbbcfac99302578e9e8bf49fb5cb1db1"
+        },
+        {
+          "path": "candidates/v03-comic-burst/frames/frame-04.png",
+          "sha256": "d7f947d0b7bdaa7a980ab4dddca76a928d6a7d158fe6bd483c8b41963fd63eba"
+        },
+        {
+          "path": "candidates/v03-comic-burst/frames/frame-05.png",
+          "sha256": "8981ef1c89aa435d4c6c0d7299b505dde84a9c2132092d082cfc1021ed281a44"
+        }
+      ]
+    },
+    {
+      "id": "v04-slide-caption",
+      "frame_count": 7,
+      "durations_ms": [
+        80,
+        80,
+        100,
+        140,
+        140,
+        200,
+        580
+      ],
+      "frames": [
+        {
+          "path": "candidates/v04-slide-caption/frames/frame-00.png",
+          "sha256": "f7d67063ee8e3cac131a8be65615fb88cdd59d7736957641b54ecb8c991ab0a8"
+        },
+        {
+          "path": "candidates/v04-slide-caption/frames/frame-01.png",
+          "sha256": "2ac5fe0300bb262ded5ecd111fdcbabe6cd9966276276536bf980123d4b940f6"
+        },
+        {
+          "path": "candidates/v04-slide-caption/frames/frame-02.png",
+          "sha256": "2f75ace1f7095d29fd967bf9dfa4228a7c12656ef238ff06f8e76e6e426c153a"
+        },
+        {
+          "path": "candidates/v04-slide-caption/frames/frame-03.png",
+          "sha256": "4248550966d43db933615eef48fdd50e906c64f4abf9a6c806b6b84463382f93"
+        },
+        {
+          "path": "candidates/v04-slide-caption/frames/frame-04.png",
+          "sha256": "d6a613a4139e0d50292579a52959f36dadb5d6e17dec57e04edeb07b08db48a3"
+        },
+        {
+          "path": "candidates/v04-slide-caption/frames/frame-05.png",
+          "sha256": "2a22f8d579aa3715bf04587839dfb8eccdbafb077f14525e35e76d461b0aebe5"
+        },
+        {
+          "path": "candidates/v04-slide-caption/frames/frame-06.png",
+          "sha256": "71305131a1c8185eed9a1da9bef37277589271322b897d652a24eb37dbb48252"
+        }
+      ]
+    },
+    {
+      "id": "v05-chat-card",
+      "frame_count": 6,
+      "durations_ms": [
+        90,
+        110,
+        110,
+        180,
+        220,
+        620
+      ],
+      "frames": [
+        {
+          "path": "candidates/v05-chat-card/frames/frame-00.png",
+          "sha256": "3b12adacae406784a39587b2faa45ae58cd363e807643662de4e00cc3170ca69"
+        },
+        {
+          "path": "candidates/v05-chat-card/frames/frame-01.png",
+          "sha256": "38326b71dd4c2eef0108a4f36ed7a01488817d6949da4e3d19dd3d88b2f49747"
+        },
+        {
+          "path": "candidates/v05-chat-card/frames/frame-02.png",
+          "sha256": "353d59e6e04fb947b4a3ae245a7cdcc6ebce280768a70e5e2d34b1c7f58d666e"
+        },
+        {
+          "path": "candidates/v05-chat-card/frames/frame-03.png",
+          "sha256": "172bd50503e628f7389722570b133b65e99ee4fe6da623ff96f3e3c2fbfab6d8"
+        },
+        {
+          "path": "candidates/v05-chat-card/frames/frame-04.png",
+          "sha256": "321a1c3874a783b374011f3823a3ef5918195280c8fc74cf02bb191c4b10847b"
+        },
+        {
+          "path": "candidates/v05-chat-card/frames/frame-05.png",
+          "sha256": "47f3f1db2e3cc28b1561b12674e786cc2082dfc8c567650bf532b3c716daccb4"
+        }
+      ]
+    },
+    {
+      "id": "v06-right-linked-chat-card",
+      "frame_count": 7,
+      "durations_ms": [
+        100,
+        100,
+        160,
+        160,
+        140,
+        240,
+        620
+      ],
+      "frames": [
+        {
+          "path": "candidates/v06-right-linked-chat-card/frames/frame-00.png",
+          "sha256": "bdf23ae9f025bf70c96018f2d163b36e59047c514f2ff965c07b62f86437bb8b"
+        },
+        {
+          "path": "candidates/v06-right-linked-chat-card/frames/frame-01.png",
+          "sha256": "63cbf3aee77969eebc670c9c3d4809ce77adf937cae10d9a73ced05a27f413c0"
+        },
+        {
+          "path": "candidates/v06-right-linked-chat-card/frames/frame-02.png",
+          "sha256": "ed449e45513fa1477a9d3f73140b9a4bbff7c0cbc3abb47853b3c77b302ca6a1"
+        },
+        {
+          "path": "candidates/v06-right-linked-chat-card/frames/frame-03.png",
+          "sha256": "170d1e636f07c8cdde28a0c95653470765f958861d078b652b876237e226bbd3"
+        },
+        {
+          "path": "candidates/v06-right-linked-chat-card/frames/frame-04.png",
+          "sha256": "7d81d38e3a2eee1715dbc75b3b70dbcd58cf90de2fcb3c1d2b9cb84edfaf5022"
+        },
+        {
+          "path": "candidates/v06-right-linked-chat-card/frames/frame-05.png",
+          "sha256": "f1fa547b94a0d2f6a8bbdd6e83d40731949e6fa44a9ebfc5704fdacd07e4b659"
+        },
+        {
+          "path": "candidates/v06-right-linked-chat-card/frames/frame-06.png",
+          "sha256": "01edf977d86eaeb7c17f14eb1709654eed8565d9c72573164ea3b65f2a786d1c"
+        }
+      ]
+    },
+    {
+      "id": "v07-original-distance-chat-card",
+      "frame_count": 7,
+      "durations_ms": [
+        100,
+        100,
+        160,
+        160,
+        140,
+        240,
+        620
+      ],
+      "frames": [
+        {
+          "path": "candidates/v07-original-distance-chat-card/frames/frame-00.png",
+          "sha256": "94de89a0659372a3d8ab8fda4e34d98eacccc5f0cd966dde311e988ff86e3600"
+        },
+        {
+          "path": "candidates/v07-original-distance-chat-card/frames/frame-01.png",
+          "sha256": "5e8e52d2b6bcd85a9a9b03e12be481f041cb0d30d7f72d8397a4045100b1f85f"
+        },
+        {
+          "path": "candidates/v07-original-distance-chat-card/frames/frame-02.png",
+          "sha256": "89cbb5b7888e2c0f30326bf572ffe36472c8fa6fd1abcf2540cfdd7150dc6520"
+        },
+        {
+          "path": "candidates/v07-original-distance-chat-card/frames/frame-03.png",
+          "sha256": "02a4a1361be9826d3cb677f13580d2551e3ba826ae00f8820f37b2509a04bab9"
+        },
+        {
+          "path": "candidates/v07-original-distance-chat-card/frames/frame-04.png",
+          "sha256": "c4d314fcac4c52136ce597f304033c6701e6d1f3403ae16efab689a975999473"
+        },
+        {
+          "path": "candidates/v07-original-distance-chat-card/frames/frame-05.png",
+          "sha256": "02aa3fef204b80f0196e482f8313bb1a25267d3c405fd2b361eba5e2627ae3e6"
+        },
+        {
+          "path": "candidates/v07-original-distance-chat-card/frames/frame-06.png",
+          "sha256": "24baad3d8337a8cea4baede8799775ddf82743f0e97a43b3fe1daa13fb64a463"
+        }
+      ]
+    }
+  ]
+}
