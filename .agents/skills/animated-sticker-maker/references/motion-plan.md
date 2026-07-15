@@ -33,6 +33,19 @@ Write `motion.json` before packaging. Use this minimum shape:
 }
 ```
 
+When a deterministic high-frame render exists in the packaged `source/` directory, add this optional sibling of `frames`:
+
+```json
+"render": {
+  "frame_dir": "rendered-frames",
+  "frame_count": 48,
+  "frame_durations_ms": [30, 40, 30],
+  "total_duration_ms": 1600
+}
+```
+
+The duration array must contain one positive integer per rendered PNG and sum to `total_duration_ms`. `frame_dir` must be relative to packaged `source/` and may not escape it. The shortened array above only illustrates timing variation; a real 48-frame track must contain 48 duration values. A render track is optional derived evidence, not a replacement for the 4–8 authored semantic keyframes.
+
 Planning rules:
 
 - Commit to one primary semantic beat. Treat secondary effects as support.
@@ -44,3 +57,4 @@ Planning rules:
 - Default to a loop. Plan the final recovery frame against the first frame rather than treating it as an afterthought.
 - Keep companion objects visually subordinate unless the prompt explicitly makes them co-subjects.
 - For physical contact, place a companion against the subject's local surface under its footprint; a global alpha bounding box is not a reliable contact plane for curved, notched, or deformed subjects.
+- Keep a high-frame render track only when interpolation or deterministic compositing adds visible value. Review its timing and visual result separately from the authored keyframes.

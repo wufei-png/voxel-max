@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import math
@@ -17,6 +18,10 @@ from PIL import Image, ImageDraw, ImageFont
 DEFAULT_SIZE = (1024, 1024)
 DEFAULT_FRAME_RANGE = (4, 8)
 DEFAULT_DURATION_RANGE_MS = (1200, 2000)
+
+
+def is_positive_int(value: object) -> bool:
+    return isinstance(value, int) and not isinstance(value, bool) and value > 0
 
 
 def parse_size(value: str) -> tuple[int, int]:
@@ -43,16 +48,21 @@ def load_motion(path: Path) -> dict[str, object]:
         if not isinstance(frame.get("file"), str) or not frame["file"]:
             raise ValueError(f"frames[{index}].file must be a path string")
         duration = frame.get("duration_ms")
-        if not isinstance(duration, int) or duration <= 0:
+        if not is_positive_int(duration):
             raise ValueError(f"frames[{index}].duration_ms must be a positive integer")
     return motion
 
 
 def resolve_frame(frames_dir: Path, file_value: str) -> Path:
     relative = Path(file_value)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise ValueError("motion frame paths must stay beneath the frames directory")
     candidates = [frames_dir / relative, frames_dir / relative.name]
     for candidate in candidates:
-        if candidate.is_file():
+        if (
+            candidate.is_file()
+            and candidate.resolve().is_relative_to(frames_dir.resolve())
+        ):
             return candidate
     raise FileNotFoundError(f"frame not found for {file_value!r} in {frames_dir}")
 
@@ -150,8 +160,12 @@ def package(args: argparse.Namespace) -> int:
     motion = load_motion(args.motion)
     frame_entries = motion["frames"]
     frame_paths = [resolve_frame(args.frames_dir, entry["file"]) for entry in frame_entries]
-    frames = [Image.open(path).convert("RGBA") for path in frame_paths]
-    source_modes = [Image.open(path).mode for path in frame_paths]
+    frames: list[Image.Image] = []
+    source_modes: list[str] = []
+    for path in frame_paths:
+        with Image.open(path) as source:
+            source_modes.append(source.mode)
+            frames.append(source.convert("RGBA"))
     durations = [entry["duration_ms"] for entry in frame_entries]
     total_duration = sum(durations)
     metrics = [alpha_metrics(frame) for frame in frames]
@@ -170,9 +184,22 @@ def package(args: argparse.Namespace) -> int:
     automatic_pass = all(checks.values())
 
     frame_output, qa = clean_output(args.output)
-    for index, path in enumerate(frame_paths):
-        shutil.copy2(path, frame_output / f"{index:03d}.png")
-    shutil.copy2(args.motion, args.output / "source" / "motion.json")
+    packaged_motion = copy.deepcopy(motion)
+    frame_name_map: dict[str, str] = {}
+    for index, (path, entry) in enumerate(zip(frame_paths, packaged_motion["frames"])):
+        normalized_name = f"{index:03d}.png"
+        original_name = entry["file"]
+        shutil.copy2(path, frame_output / normalized_name)
+        canonical_name = f"frames/{normalized_name}"
+        entry["file"] = canonical_name
+        frame_name_map[original_name] = canonical_name
+    semantic_hold = packaged_motion.get("semantic_hold_frame")
+    if isinstance(semantic_hold, str) and semantic_hold in frame_name_map:
+        packaged_motion["semantic_hold_frame"] = frame_name_map[semantic_hold]
+    (args.output / "source" / "motion.json").write_text(
+        json.dumps(packaged_motion, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
     make_contact_sheet(frames, durations, qa / "contact-sheet.png")
 
     report = {

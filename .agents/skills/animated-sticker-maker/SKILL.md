@@ -31,6 +31,7 @@ output/<name>/
 │   ├── frames/
 │   │   ├── 000.png
 │   │   └── ...
+│   ├── rendered-frames/      # optional reviewed high-frame track
 │   └── motion.json
 ├── qa/
 │   ├── contact-sheet.png
@@ -96,6 +97,8 @@ Use the nonstandard timing or frame-count flags only when the user's prompt expl
 
 Complete this step only when `sticker.webp`, copied source frames, `motion.json`, the contact sheet, and the automatic report all exist and the report passes.
 
+Packaging rewrites copied keyframes to canonical `frames/000.png`, `frames/001.png`, and so on, and rewrites matching semantic-hold references with them. Treat the packaged `source/motion.json` as the self-contained source of truth; do not retain paths that only resolve in the working directory.
+
 Packaging replaces the generated QA report and therefore invalidates any earlier visual-review decision for that output. Re-run and record visual QA after every repack; never preserve a prior pass across changed frames.
 
 ### 7. Perform visual QA and deliver
@@ -126,7 +129,23 @@ python <skill-dir>/scripts/export_platform_gif.py \
   --verified-on <YYYY-MM-DD>
 ```
 
-The exporter requires the aggregate package status, automatic review, and visual review to all be `pass`. It preserves source timing, uses one shared GIF palette to reduce frame-to-frame color shimmer, chooses the highest tested color count that meets the byte limit, and records the source review states, export parameters, and hashes. Omit the preview arguments when the platform does not require one. Use `--allow-unreviewed` only for explicit diagnostics, never for a release deliverable. If no palette candidate fits, change size, timing, or frame count only through an explicit reviewed decision; do not silently degrade the semantic hold.
+The exporter requires the aggregate package status, an explicit automatic-review pass or a non-empty all-true `checks` object, and the visual review to all be `pass`. A top-level pass alone is insufficient. It preserves source timing, uses one shared GIF palette to reduce frame-to-frame color shimmer, chooses the highest tested color count that meets the byte limit, and records the source review states, export parameters, and hashes. Omit the preview arguments when the platform does not require one. Use `--allow-unreviewed` only for explicit diagnostics, never for a release deliverable. If no palette candidate fits, change size, timing, or frame count only through an explicit reviewed decision; do not silently degrade the semantic hold.
+
+Keep authored keyframes as the default export track. When a platform benefits materially from smoother motion and the package contains a deterministic high-frame track declared by `motion.render`, export that track explicitly:
+
+```bash
+python <skill-dir>/scripts/export_platform_gif.py \
+  --package <output/name> \
+  --platform <platform> \
+  --size <WIDTHxHEIGHT> \
+  --max-bytes <limit> \
+  --frame-track render \
+  --track-report <output/name/qa/render-report.json> \
+  --fps-candidates 30,24,20,15 \
+  --min-colors 64
+```
+
+The render track needs its own passed automatic/check and visual review because it is a separate temporal artifact. `--fps-candidates` is an explicit, highest-to-lowest fallback policy: the exporter first searches palette sizes down to `--min-colors` at the preferred frame rate, then tries the next frame rate. Do not create or select this track silently, and do not put subject-specific frame rates, palette floors, or platform limits into the generic Skill.
 
 Complete the task only when the package is usable, the visual review is recorded, and every requested export passes its current platform constraints.
 
