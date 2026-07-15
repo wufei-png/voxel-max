@@ -1,22 +1,23 @@
-# 像素小人（公开名待定）
+# 像素小同事
 
-内部 ID：`pixel-human`  
-主体状态：`planning`  
-主体性质：与真人无关的原创角色
+- 内部 ID：`pixel-human`
+- 主体状态：`production / identity_trials_approved`
+- 主体性质：与真人无关的原创角色
 
-当前唯一输入是 [`references/original-avatar.png`](references/original-avatar.png)。它是概念参考，不是批准母版；仓库尚未锁定公开名、身份规范、原生像素网格、身体范围或表情包主题。
+身份方向已经锁定为“无脸冷面工作搭子”：面向现代工作聊天、略带技术气质，使用 `32×32` 原生身份网格、正面大头半身和受控前臂动作。A3 已被批准为 [`identity/masters/master-v1-32.png`](identity/masters/master-v1-32.png)，完整规则以 [`identity/spec.md`](identity/spec.md) 为准。
 
-## 当前目标
+[`references/original-avatar.png`](references/original-avatar.png) 只保留为概念来源，候选目录只用于评审追溯；后续身份生产输入必须使用批准母版 v1。用户已确认原始参考的重绘、改编、公开发布与商用权利完整。
 
-1. 评审 [`research/report.md`](research/report.md) 与 [`research/brief.md`](research/brief.md) 中仍有价值的结论。
-2. 锁定身份固定项、可变项、原生像素网格和无脸规则。
-3. 重绘并审核第一张正式母版，之后才创建 `identity/masters/`。
-4. 使用 3 张代表性动态试片验证身份稳定、动作可读、循环、Alpha 和小尺寸表现。
-5. 试片通过后再决定第一套表情包的主题和 8 张清单。
+## 当前状态
+
+1. 公开角色名为“像素小同事”。
+2. A3 已批准为身份母版 v1，严格无脸、`32×32` 身份网格和 `48×48` 动画工作框已经锁定。
+3. `收到 / 工作中 / 崩了` 三张代表性动态试片已通过，可以展开首套工作反应包。
 
 ## 边界
 
 - 像素小人不是方芯的新皮肤，也不沿用方芯的缺角、状态核心、无手脚或 S01-S08 动作规则。
 - 新表情包从自己的 `S01` 开始编号，不接续方芯编号。
-- 研究材料没有决策权；没有批准母版前不得批量制作表情。
+- 研究材料和候选图没有决策权；批准母版 v1 是当前唯一身份基准。
 - 当前参考与真人无关，旧文件名中的个人标识不构成角色名称或身份来源。
+- 两份研究报告的冲突已经在 [`identity/spec.md`](identity/spec.md) 中收敛；不再并行制作 A/B 两套完整方向。

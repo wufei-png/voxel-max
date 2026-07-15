@@ -9,14 +9,14 @@
 | 内部 ID | 状态 | 当前事实 | 入口 |
 | --- | --- | --- | --- |
 | `fangxin` | 第二套微信候选待提交 | 方芯身份与 v6 母版已锁定；《方芯上班中》已通过微信发布链路；《方芯回你了》12 张 GIF、品牌素材与发布 QA 已完成，状态为 `ready_for_submission` | [`../projects/fangxin/README.md`](../projects/fangxin/README.md) |
-| `pixel-human` | 规划中 | 与真人无关、公开名待定的原创像素主体；当前图片仍是概念参考，不是母版；先锁定身份并验证 3 张代表性试片 | [`../projects/pixel-human/README.md`](../projects/pixel-human/README.md) |
+| `pixel-human` | 身份试片已通过 | 公开名“像素小同事”、A3 身份母版和严格无脸规则已锁定；三张代表性动态试片通过，可以展开首套工作反应包 | [`../projects/pixel-human/README.md`](../projects/pixel-human/README.md) |
 | `motherboard2` | 概念候选 | 只保留青绿色 2.5D 方形生物概念图；尚未命名、没有批准母版，不进入生产 | [`../projects/motherboard2/README.md`](../projects/motherboard2/README.md) |
 | `$animated-sticker-maker` | `v0.6` | 已补齐自包含帧路径、可选已审核高帧率渲染轨和显式帧率/色数降级；待像素小人完成跨风格试片后评估 `v1` | [`current/skill-contract.md`](current/skill-contract.md) |
 
 ## 当前工作
 
 1. 提交者在微信后台复核实时规格并上传《方芯回你了》v1 候选；平台正式受理并通过后更新为 `published`，不修改已完成的《方芯上班中》。
-2. 评审像素小人研究材料，锁定身份规范、原生像素网格和正式母版，再制作 3 张代表性动态试片。
+2. 基于已通过的像素小同事身份母版和三张试片，制作首套工作反应包。
 3. `motherboard2` 保持概念状态，除非用户明确启动该主体。
 
 ## 权威顺序
@@ -39,7 +39,7 @@
 | 修改目录、归属或项目模型 | [`current/project-model.md`](current/project-model.md)、[`../CONTEXT.md`](../CONTEXT.md) | 受影响主体 README |
 | 规划方芯后续系列 | [`../projects/fangxin/README.md`](../projects/fangxin/README.md)、[`../projects/fangxin/packs/README.md`](../projects/fangxin/packs/README.md) | [`../projects/fangxin/identity/spec.md`](../projects/fangxin/identity/spec.md) |
 | 查方芯已完成首包 | [`../projects/fangxin/packs/shangbanzhong/README.md`](../projects/fangxin/packs/shangbanzhong/README.md) | 动作卡或生成指南 |
-| 继续像素小人 | [`../projects/pixel-human/README.md`](../projects/pixel-human/README.md) | 该项目 `research/` 中的指定材料 |
+| 继续像素小人 | [`../projects/pixel-human/README.md`](../projects/pixel-human/README.md)、[`../projects/pixel-human/identity/spec.md`](../projects/pixel-human/identity/spec.md) | 仅在追溯决策时读取该项目 `research/` 中的指定材料 |
 | 查看未来 2.5D 主体概念 | [`../projects/motherboard2/README.md`](../projects/motherboard2/README.md) | 仅在用户明确启动时读取概念图 |
 | 修改通用 Skill 契约 | [`current/skill-contract.md`](current/skill-contract.md) | `.agents/skills/animated-sticker-maker/SKILL.md` |
 | 显式运行 `$animated-sticker-maker` | `.agents/skills/animated-sticker-maker/SKILL.md` | [`current/skill-contract.md`](current/skill-contract.md) |

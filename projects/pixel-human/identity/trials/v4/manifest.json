@@ -1,0 +1,76 @@
+{
+  "status": "approved",
+  "supersedes": "identity/trials/v3",
+  "master_path": "identity/masters/master-v1-32.png",
+  "master_sha256": "c7d0e4f83d6816231bd3d36109c291164e142159dc14cfdedd924fe1a96ec6ed",
+  "canvas": [
+    48,
+    48
+  ],
+  "trial_order": [
+    "crashed",
+    "received",
+    "working"
+  ],
+  "trials": [
+    {
+      "id": "received",
+      "frame_paths": [
+        "received/frames/frame-00.png",
+        "received/frames/frame-01.png",
+        "received/frames/frame-02.png",
+        "received/frames/frame-03.png",
+        "received/frames/frame-04.png"
+      ],
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ],
+      "distinct_poses": 4
+    },
+    {
+      "id": "working",
+      "frame_paths": [
+        "working/frames/frame-00.png",
+        "working/frames/frame-01.png",
+        "working/frames/frame-02.png",
+        "working/frames/frame-03.png",
+        "working/frames/frame-04.png"
+      ],
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ],
+      "distinct_poses": 4
+    },
+    {
+      "id": "crashed",
+      "frame_paths": [
+        "crashed/frames/frame-00.png",
+        "crashed/frames/frame-01.png",
+        "crashed/frames/frame-02.png",
+        "crashed/frames/frame-03.png",
+        "crashed/frames/frame-04.png"
+      ],
+      "durations_ms": [
+        480,
+        120,
+        120,
+        120,
+        360
+      ],
+      "distinct_poses": 4
+    }
+  ],
+  "notes": {
+    "received": "approved frame-for-frame reuse of v2 received",
+    "working": "approved frame-for-frame reuse of v2 working",
+    "crashed": "approved upright-to-face-down collapse with an all-black crown"
+  }
+}
