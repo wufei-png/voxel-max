@@ -1,0 +1,58 @@
+name: animated-sticker-maker
+
+on:
+  push:
+    paths:
+      - ".agents/skills/animated-sticker-maker/**"
+      - ".github/workflows/animated-sticker-maker.yml"
+  pull_request:
+    paths:
+      - ".agents/skills/animated-sticker-maker/**"
+      - ".github/workflows/animated-sticker-maker.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  skill:
+    name: Agent Skill package
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+      - name: Validate Agent Skills specification
+        run: uvx --from skills-ref==0.1.1 agentskills validate "${{ github.workspace }}/.agents/skills/animated-sticker-maker"
+
+  test:
+    name: Python ${{ matrix.python }} / Pillow ${{ matrix.pillow }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python: "3.10"
+            pillow: "Pillow>=10,<11"
+          - python: "3.11"
+            pillow: "Pillow>=11,<12"
+          - python: "3.12"
+            pillow: "Pillow>=12,<13"
+          - python: "3.13"
+            pillow: "Pillow>=12,<13"
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: .agents/skills/animated-sticker-maker/requirements.txt
+      - name: Install dependencies
+        run: python -m pip install "${{ matrix.pillow }}" "numpy>=1.24"
+      - name: Compile scripts
+        run: python -m py_compile .agents/skills/animated-sticker-maker/scripts/*.py
+      - name: Run tests and animated WebP smoke test
+        run: python -m unittest discover -s .agents/skills/animated-sticker-maker/tests -v

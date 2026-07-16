@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export a reviewed sticker package as a constrained GIF and preview PNG."""
+"""Export a validated sticker package as a constrained GIF and preview PNG."""
 
 from __future__ import annotations
 
@@ -7,16 +7,30 @@ import argparse
 import bisect
 import hashlib
 import json
+import re
+import tempfile
 from datetime import date
 from pathlib import Path
+from urllib.parse import urlparse
 
 import numpy as np
 from PIL import Image
+
+from artifact_integrity import (
+    fingerprint_files,
+    package_fingerprint,
+    render_track_fingerprint,
+)
 
 
 COLOR_CANDIDATES = (255, 224, 192, 160, 128, 96, 64, 48, 32)
 MAX_PALETTE_SAMPLES = 500_000
 TRANSPARENT_INDEX = 255
+RESAMPLING_FILTERS = {
+    "lanczos": Image.Resampling.LANCZOS,
+    "nearest": Image.Resampling.NEAREST,
+}
+PLATFORM_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*")
 
 
 def is_positive_int(value: object) -> bool:
@@ -56,6 +70,35 @@ def parse_fps_candidates(value: str) -> tuple[int, ...]:
     return candidates
 
 
+def parse_spec_url(value: str) -> str:
+    parsed = urlparse(value)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        raise argparse.ArgumentTypeError(
+            "spec URL must be an absolute http(s) URL to the verified platform specification"
+        )
+    return value
+
+
+def parse_platform(value: str) -> str:
+    if not PLATFORM_PATTERN.fullmatch(value) or value in {".", ".."}:
+        raise argparse.ArgumentTypeError(
+            "platform must be one safe path segment using letters, digits, dot, dash, or underscore"
+        )
+    return value
+
+
+def parse_verified_on(value: str) -> str:
+    try:
+        verified = date.fromisoformat(value)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError(
+            "verified-on must be an ISO date in YYYY-MM-DD form"
+        ) from exc
+    if verified > date.today():
+        raise argparse.ArgumentTypeError("verified-on cannot be in the future")
+    return verified.isoformat()
+
+
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -64,26 +107,97 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def review_status(report: dict[str, object]) -> dict[str, object]:
+def validation_status(report: dict[str, object]) -> dict[str, object]:
     aggregate = report.get("status")
-    automatic_review = report.get("automatic_review")
-    visual_review = report.get("visual_review")
-    automatic = (
-        automatic_review.get("status") if isinstance(automatic_review, dict) else None
+    technical_validation = report.get("technical_validation")
+    visual_validation = report.get("visual_validation")
+    technical = (
+        technical_validation.get("status")
+        if isinstance(technical_validation, dict)
+        else None
     )
-    visual = visual_review.get("status") if isinstance(visual_review, dict) else None
-    checks = report.get("checks")
-    checks_pass = (
-        isinstance(checks, dict)
-        and bool(checks)
-        and all(value is True for value in checks.values())
+    visual = (
+        visual_validation.get("status")
+        if isinstance(visual_validation, dict)
+        else None
     )
     return {
         "aggregate": aggregate if isinstance(aggregate, str) else None,
-        "automatic": automatic if isinstance(automatic, str) else None,
-        "checks_pass": checks_pass,
+        "technical": technical if isinstance(technical, str) else None,
         "visual": visual if isinstance(visual, str) else None,
+        "deliverable_ready": report.get("deliverable_ready") is True,
     }
+
+
+def validation_is_complete(validation: dict[str, object]) -> bool:
+    return bool(
+        validation.get("aggregate") == "pass"
+        and validation.get("technical") == "pass"
+        and validation.get("visual") == "pass"
+        and validation.get("deliverable_ready") is True
+    )
+
+
+def export_validation_status(
+    source_validation: dict[str, object],
+    track_validation: dict[str, object] | None,
+    track_required: bool = False,
+) -> tuple[str, bool]:
+    track_complete = (
+        track_validation is not None and validation_is_complete(track_validation)
+        if track_required
+        else True
+    )
+    source_validation_complete = (
+        validation_is_complete(source_validation) and track_complete
+    )
+    return (
+        ("pending_visual_validation", True)
+        if source_validation_complete
+        else ("diagnostic_unvalidated", False)
+    )
+
+
+def direct_export_path(
+    export_dir: Path,
+    requested: Path | None,
+    default_name: str,
+    label: str,
+) -> Path:
+    if requested is None:
+        path = export_dir / default_name
+    elif not requested.is_absolute() and len(requested.parts) == 1:
+        path = export_dir / requested
+    else:
+        path = requested
+    if path.resolve().parent != export_dir.resolve():
+        raise ValueError(f"{label} must be a direct child of {export_dir}")
+    if path.exists() and not path.is_file():
+        raise ValueError(f"{label} must not replace a directory: {path}")
+    return path
+
+
+def commit_staged_files(
+    entries: list[tuple[Path, Path]], staging: Path
+) -> None:
+    """Replace a related export set together, restoring previous files on error."""
+    backups: dict[Path, Path] = {}
+    committed: list[Path] = []
+    try:
+        for index, (staged, final) in enumerate(entries):
+            if final.exists():
+                backup = staging / f".previous-{index}-{final.name}"
+                final.replace(backup)
+                backups[final] = backup
+            staged.replace(final)
+            committed.append(final)
+    except Exception:
+        for final in reversed(committed):
+            final.unlink(missing_ok=True)
+        for final, backup in backups.items():
+            if backup.exists():
+                backup.replace(final)
+        raise
 
 
 def safe_track_dir(source_dir: Path, value: object) -> Path:
@@ -100,9 +214,9 @@ def safe_track_dir(source_dir: Path, value: object) -> Path:
     return track_dir
 
 
-def load_reviewed_package(
+def load_validated_package(
     package: Path,
-    allow_unreviewed: bool,
+    allow_unvalidated: bool,
     frame_track: str = "keyframes",
     track_report: Path | None = None,
 ) -> tuple[
@@ -113,10 +227,13 @@ def load_reviewed_package(
     dict[str, object] | None,
 ]:
     motion_path = package / "source" / "motion.json"
-    report_path = package / "qa" / "report.json"
+    report_path = package / "validation" / "report.json"
     frames_dir = package / "source" / "frames"
     if not motion_path.is_file() or not report_path.is_file() or not frames_dir.is_dir():
-        raise FileNotFoundError("package must contain source/motion.json, source/frames, and qa/report.json")
+        raise FileNotFoundError(
+            "package must contain source/motion.json, source/frames, and "
+            "validation/report.json"
+        )
 
     motion = json.loads(motion_path.read_text(encoding="utf-8"))
     entries = motion.get("frames")
@@ -129,26 +246,30 @@ def load_reviewed_package(
         raise ValueError("every motion frame must have a positive integer duration_ms")
 
     report = json.loads(report_path.read_text(encoding="utf-8"))
-    source_review = review_status(report)
-    review_complete = (
-        source_review["aggregate"] == "pass"
-        and (
-            source_review["automatic"] == "pass"
-            or source_review["checks_pass"] is True
-        )
-        and source_review["visual"] == "pass"
-    )
-    if not review_complete and not allow_unreviewed:
+    expected_fingerprint = report.get("artifact_fingerprint")
+    if report.get("artifact_scope") != "package_source" or not isinstance(
+        expected_fingerprint, str
+    ):
         raise ValueError(
-            "package review is incomplete "
-            f"(aggregate={source_review['aggregate']!r}, "
-            f"automatic={source_review['automatic']!r}, "
-            f"checks_pass={source_review['checks_pass']!r}, "
-            f"visual={source_review['visual']!r}); pass both reviews first or use "
-            "--allow-unreviewed explicitly"
+            "package validation report has no bound source artifact fingerprint"
+        )
+    actual_fingerprint = package_fingerprint(package)
+    if actual_fingerprint != expected_fingerprint:
+        raise ValueError(
+            "package source changed after validation; repack and repeat validation"
+        )
+    source_validation = validation_status(report)
+    validation_complete = validation_is_complete(source_validation)
+    if not validation_complete and not allow_unvalidated:
+        raise ValueError(
+            "package validation is incomplete "
+            f"(aggregate={source_validation['aggregate']!r}, "
+            f"technical={source_validation['technical']!r}, "
+            f"visual={source_validation['visual']!r}); pass both validations first "
+            "or use --allow-unvalidated explicitly"
         )
 
-    derived_review = None
+    derived_validation = None
     if frame_track == "keyframes":
         frame_paths = sorted(frames_dir.glob("*.png"))
         if len(frame_paths) != len(entries):
@@ -183,26 +304,32 @@ def load_reviewed_package(
         if declared_total != sum(durations):
             raise ValueError("render.total_duration_ms does not match frame durations")
         if track_report is None:
-            if not allow_unreviewed:
+            if not allow_unvalidated:
                 raise ValueError(
                     "render track export requires --track-report with aggregate, "
-                    "automatic/checks, and visual pass states"
+                    "technical/checks, and visual pass states"
                 )
         else:
             derived_report = json.loads(track_report.read_text(encoding="utf-8"))
-            derived_review = review_status(derived_report)
-            derived_complete = (
-                derived_review["aggregate"] == "pass"
-                and (
-                    derived_review["automatic"] == "pass"
-                    or derived_review["checks_pass"] is True
-                )
-                and derived_review["visual"] == "pass"
-            )
-            if not derived_complete and not allow_unreviewed:
+            expected_track_fingerprint = derived_report.get("artifact_fingerprint")
+            if derived_report.get("artifact_scope") != "render_track" or not isinstance(
+                expected_track_fingerprint, str
+            ):
                 raise ValueError(
-                    "render track review is incomplete "
-                    f"({derived_review}); pass its automatic/check and visual reviews first"
+                    "render-track validation has no bound artifact fingerprint"
+                )
+            if render_track_fingerprint(package) != expected_track_fingerprint:
+                raise ValueError(
+                    "render track changed after validation; regenerate and repeat "
+                    "its validation"
+                )
+            derived_validation = validation_status(derived_report)
+            derived_complete = validation_is_complete(derived_validation)
+            if not derived_complete and not allow_unvalidated:
+                raise ValueError(
+                    "render track validation is incomplete "
+                    f"({derived_validation}); pass its technical and visual "
+                    "validations first"
                 )
     else:
         raise ValueError(f"unsupported frame track: {frame_track}")
@@ -211,32 +338,60 @@ def load_reviewed_package(
     for path in frame_paths:
         with Image.open(path) as source:
             frames.append(source.convert("RGBA"))
-    return frames, durations, motion, source_review, derived_review
+    return frames, durations, motion, source_validation, derived_validation
 
 
-def fit_frame(frame: Image.Image, size: tuple[int, int]) -> Image.Image:
-    fitted = frame.copy()
-    fitted.thumbnail(size, Image.Resampling.LANCZOS)
+def fit_frame(
+    frame: Image.Image,
+    size: tuple[int, int],
+    resampling: str = "lanczos",
+) -> Image.Image:
+    if resampling not in RESAMPLING_FILTERS:
+        raise ValueError("resampling must be 'lanczos' or 'nearest'")
+    scale = min(size[0] / frame.width, size[1] / frame.height)
+    fitted_size = (
+        max(1, round(frame.width * scale)),
+        max(1, round(frame.height * scale)),
+    )
+    fitted = frame.resize(fitted_size, RESAMPLING_FILTERS[resampling])
     canvas = Image.new("RGBA", size, (0, 0, 0, 0))
     canvas.alpha_composite(fitted, ((size[0] - fitted.width) // 2, (size[1] - fitted.height) // 2))
     return canvas
 
 
-def make_global_palette(
-    frames: list[Image.Image], colors: int, alpha_threshold: int
-) -> Image.Image:
+def collect_palette_samples(
+    frames: list[Image.Image],
+    alpha_threshold: int,
+    max_samples: int = MAX_PALETTE_SAMPLES,
+) -> np.ndarray:
+    if max_samples <= 0:
+        raise ValueError("max_samples must be positive")
     samples: list[np.ndarray] = []
-    for frame in frames:
+    frame_count = len(frames)
+    base_budget, extra_budget = divmod(max_samples, max(1, frame_count))
+    for index, frame in enumerate(frames):
+        budget = base_budget + (1 if index < extra_budget else 0)
+        if budget == 0:
+            continue
         rgba = np.asarray(frame)
         visible = rgba[..., :3][rgba[..., 3] >= alpha_threshold]
         if visible.size:
+            if len(visible) > budget:
+                step = max(1, (len(visible) + budget - 1) // budget)
+                visible = visible[::step][:budget]
             samples.append(visible)
     if not samples:
         raise ValueError("frames contain no visible pixels at the selected alpha threshold")
     rgb = np.concatenate(samples, axis=0)
-    if len(rgb) > MAX_PALETTE_SAMPLES:
-        step = max(1, len(rgb) // MAX_PALETTE_SAMPLES)
-        rgb = rgb[::step][:MAX_PALETTE_SAMPLES]
+    if len(rgb) > max_samples:
+        raise AssertionError("palette sample budget exceeded")
+    return rgb
+
+
+def make_global_palette(
+    frames: list[Image.Image], colors: int, alpha_threshold: int
+) -> Image.Image:
+    rgb = collect_palette_samples(frames, alpha_threshold)
     sample_image = Image.fromarray(rgb.reshape(1, len(rgb), 3), mode="RGB")
     palette = sample_image.quantize(
         colors=colors,
@@ -278,17 +433,18 @@ def write_gif(
     loop: bool,
 ) -> None:
     indexed = quantize_frames(frames, colors, alpha_threshold)
-    indexed[0].save(
-        path,
-        format="GIF",
-        save_all=True,
-        append_images=indexed[1:],
-        duration=durations,
-        loop=0 if loop else 1,
-        disposal=2,
-        transparency=TRANSPARENT_INDEX,
-        optimize=True,
-    )
+    save_options = {
+        "format": "GIF",
+        "save_all": True,
+        "append_images": indexed[1:],
+        "duration": durations,
+        "disposal": 2,
+        "transparency": TRANSPARENT_INDEX,
+        "optimize": True,
+    }
+    if loop:
+        save_options["loop"] = 0
+    indexed[0].save(path, **save_options)
 
 
 def gif_safe_durations(total_ms: int, frame_count: int) -> list[int]:
@@ -453,6 +609,7 @@ def automatic_preview_frame(
     package: Path,
     motion: dict[str, object],
     size: tuple[int, int],
+    resampling: str = "lanczos",
 ) -> tuple[Image.Image, int]:
     entries = motion.get("frames")
     assert isinstance(entries, list) and entries
@@ -473,14 +630,19 @@ def automatic_preview_frame(
                 for index, entry in enumerate(entries):
                     if entry.get("file") == semantic_name:
                         preview_index = index
-                        break
-                with Image.open(candidate) as source:
-                    return fit_frame(source.convert("RGBA"), size), preview_index
+                        with Image.open(candidate) as source:
+                            return (
+                                fit_frame(source.convert("RGBA"), size, resampling),
+                                preview_index,
+                            )
+                raise ValueError(
+                    "semantic_hold_frame must match one authored keyframe entry"
+                )
     keyframes = sorted((package / "source/frames").glob("*.png"))
     if len(keyframes) != len(entries):
         raise ValueError("cannot resolve automatic preview from package keyframes")
     with Image.open(keyframes[preview_index]) as source:
-        return fit_frame(source.convert("RGBA"), size), preview_index
+        return fit_frame(source.convert("RGBA"), size, resampling), preview_index
 
 
 def validate_gif(
@@ -491,28 +653,31 @@ def validate_gif(
     loop: bool,
     allow_frame_collapse: bool = False,
 ) -> dict[str, object]:
-    image = Image.open(path)
-    expected_loop = 0 if loop else 1
+    expected_loop = 0 if loop else None
     actual_durations: list[int | None] = []
     transparent_borders: list[bool] = []
-    for index in range(getattr(image, "n_frames", 1)):
-        image.seek(index)
-        actual_durations.append(image.info.get("duration"))
-        alpha = np.asarray(image.convert("RGBA").getchannel("A"))
-        transparent_borders.append(
-            bool(
-                np.all(alpha[0] == 0)
-                and np.all(alpha[-1] == 0)
-                and np.all(alpha[:, 0] == 0)
-                and np.all(alpha[:, -1] == 0)
+    with Image.open(path) as image:
+        encoded_frame_count = getattr(image, "n_frames", 1)
+        encoded_size = image.size
+        for index in range(encoded_frame_count):
+            image.seek(index)
+            actual_durations.append(image.info.get("duration"))
+            alpha = np.asarray(image.convert("RGBA").getchannel("A"))
+            transparent_borders.append(
+                bool(
+                    np.all(alpha[0] == 0)
+                    and np.all(alpha[-1] == 0)
+                    and np.all(alpha[:, 0] == 0)
+                    and np.all(alpha[:, -1] == 0)
+                )
             )
-        )
+        encoded_loop = image.info.get("loop")
     actual_duration_values = [
         value for value in actual_durations if isinstance(value, int)
     ]
-    frame_count_matches = getattr(image, "n_frames", 1) == frame_count
+    frame_count_matches = encoded_frame_count == frame_count
     if allow_frame_collapse:
-        frame_count_matches = 1 < getattr(image, "n_frames", 1) <= frame_count
+        frame_count_matches = 1 < encoded_frame_count <= frame_count
     durations_preserved = len(actual_durations) == len(durations) and all(
         isinstance(actual, int) and abs(actual - expected) <= 10
         for actual, expected in zip(actual_durations, durations)
@@ -523,17 +688,17 @@ def validate_gif(
             and abs(sum(actual_duration_values) - sum(durations)) <= 10
         )
     checks = {
-        "size_matches": image.size == size,
+        "size_matches": encoded_size == size,
         "frame_count_matches": frame_count_matches,
         "durations_preserved": durations_preserved,
-        "loop_matches": image.info.get("loop") == expected_loop,
+        "loop_matches": encoded_loop == expected_loop,
         "all_borders_transparent": all(transparent_borders),
     }
     if not all(checks.values()):
         raise ValueError(f"exported GIF validation failed: {checks}")
     return {
         "checks": checks,
-        "encoded_frame_count": getattr(image, "n_frames", 1),
+        "encoded_frame_count": encoded_frame_count,
         "durations_ms": actual_durations,
         "total_duration_ms": sum(actual_duration_values),
     }
@@ -542,7 +707,7 @@ def validate_gif(
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--package", type=Path, required=True)
-    parser.add_argument("--platform", required=True)
+    parser.add_argument("--platform", type=parse_platform, required=True)
     parser.add_argument("--size", type=parse_size, required=True)
     parser.add_argument("--max-bytes", type=int)
     parser.add_argument(
@@ -554,7 +719,10 @@ def main() -> None:
     parser.add_argument(
         "--track-report",
         type=Path,
-        help="required pass report for a render track unless --allow-unreviewed is diagnostic",
+        help=(
+            "required pass report for a render track unless --allow-unvalidated "
+            "is diagnostic"
+        ),
     )
     parser.add_argument(
         "--fps-candidates",
@@ -573,9 +741,9 @@ def main() -> None:
     parser.add_argument("--preview-frame", default="auto", help="'auto' or a 1-based frame number")
     parser.add_argument("--report-output", type=Path)
     parser.add_argument("--alpha-threshold", type=int, default=96, choices=range(1, 255))
-    parser.add_argument("--spec-url")
-    parser.add_argument("--verified-on", default=date.today().isoformat())
-    parser.add_argument("--allow-unreviewed", action="store_true")
+    parser.add_argument("--spec-url", type=parse_spec_url, required=True)
+    parser.add_argument("--verified-on", type=parse_verified_on, required=True)
+    parser.add_argument("--allow-unvalidated", action="store_true")
     args = parser.parse_args()
     if args.max_bytes is not None and args.max_bytes <= 0:
         parser.error("--max-bytes must be positive")
@@ -587,113 +755,219 @@ def main() -> None:
         parser.error("--fps-candidates requires --frame-track render")
     if args.track_report and args.frame_track != "render":
         parser.error("--track-report requires --frame-track render")
+    package = args.package.resolve()
+    if args.track_report and not args.track_report.resolve().is_relative_to(package):
+        parser.error("--track-report must stay beneath the package directory")
 
-    frames, durations, motion, source_review, track_review = load_reviewed_package(
-        args.package,
-        args.allow_unreviewed,
-        args.frame_track,
-        args.track_report,
-    )
-    resized = [fit_frame(frame, args.size) for frame in frames]
-    export_dir = args.package / "exports" / args.platform
-    output = args.output or export_dir / "sticker.gif"
-    output.parent.mkdir(parents=True, exist_ok=True)
-    loop = bool(motion.get("loop", True))
-    (
-        exported_frames,
-        exported_durations,
-        colors,
-        gif_bytes,
-        selected_fps,
-        export_attempts,
-    ) = export_gif(
-        resized,
-        durations,
-        output,
-        args.max_bytes,
-        args.alpha_threshold,
-        loop,
-        args.min_colors,
-        args.fps_candidates,
-    )
-    validation = validate_gif(
-        output,
-        args.size,
-        len(exported_frames),
-        exported_durations,
-        loop,
-        allow_frame_collapse=args.fps_candidates is not None,
-    )
-
-    preview_record = None
-    if args.preview_output:
-        if args.preview_frame == "auto":
-            preview_frame, preview_index = automatic_preview_frame(
-                args.package,
-                motion,
-                args.size,
+    export_dir = package / "exports" / args.platform
+    export_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        output = direct_export_path(export_dir, args.output, "sticker.gif", "--output")
+        preview_output = (
+            direct_export_path(
+                export_dir,
+                args.preview_output,
+                "preview.png",
+                "--preview-output",
             )
-        else:
-            try:
-                preview_index = int(args.preview_frame) - 1
-            except ValueError as exc:
-                raise ValueError("--preview-frame must be 'auto' or a 1-based frame number") from exc
-            if not 0 <= preview_index < len(exported_frames):
-                raise ValueError("--preview-frame is outside the exported frame range")
-            preview_frame = exported_frames[preview_index]
-        args.preview_output.parent.mkdir(parents=True, exist_ok=True)
-        mode, preview_bytes, preview_colors = write_preview(
-            preview_frame, args.preview_output, args.preview_max_bytes
-        )
-        preview_record = {
-            "path": str(args.preview_output),
-            "frame": preview_index + 1,
-            "mode": mode,
-            "colors": preview_colors,
-            "bytes": preview_bytes,
-            "sha256": sha256(args.preview_output),
-        }
-
-    report = {
-        "status": "pass",
-        "platform": args.platform,
-        "verified_on": args.verified_on,
-        "spec_url": args.spec_url,
-        "source_package": str(args.package),
-        "source_review_status": source_review["aggregate"],
-        "source_review": source_review,
-        "frame_track": args.frame_track,
-        "track_review": track_review,
-        "track_report": (
-            {"path": str(args.track_report), "sha256": sha256(args.track_report)}
-            if args.track_report is not None
+            if args.preview_output is not None
             else None
-        ),
-        "canvas": list(args.size),
-        "source_frame_count": len(resized),
-        "source_total_duration_ms": sum(durations),
-        "frame_count": len(exported_frames),
-        "total_duration_ms": sum(exported_durations),
-        "gif": {
-            "path": str(output),
-            "bytes": gif_bytes,
-            "max_bytes": args.max_bytes,
-            "colors": colors,
-            "selected_fps": selected_fps,
-            "min_colors": args.min_colors,
-            "attempts": export_attempts,
-            "alpha_threshold": args.alpha_threshold,
-            "sha256": sha256(output),
-            "validation": validation,
-        },
-        "preview": preview_record,
-    }
-    report_path = args.report_output or output.with_name(f"{output.stem}.export-report.json")
-    report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        )
+        report_path = direct_export_path(
+            export_dir,
+            args.report_output,
+            f"{output.stem}.export-report.json",
+            "--report-output",
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+    if output.suffix.lower() != ".gif":
+        parser.error("--output must end in .gif")
+    if preview_output is not None and preview_output.suffix.lower() != ".png":
+        parser.error("--preview-output must end in .png")
+    if report_path.suffix.lower() != ".json":
+        parser.error("--report-output must end in .json")
+    final_paths = [output, report_path]
+    if preview_output is not None:
+        final_paths.append(preview_output)
+    if len({path.resolve() for path in final_paths}) != len(final_paths):
+        parser.error("GIF, preview, and report outputs must use distinct paths")
+
+    # Invalidate any older validation report before starting a new export attempt.
+    report_path.unlink(missing_ok=True)
+
+    frames, durations, motion, source_validation, track_validation = (
+        load_validated_package(
+            package,
+            args.allow_unvalidated,
+            args.frame_track,
+            args.track_report,
+        )
+    )
+    source_report_path = package / "validation" / "report.json"
+    source_report = json.loads(source_report_path.read_text(encoding="utf-8"))
+    source_artifact_fingerprint = source_report.get("artifact_fingerprint")
+    if not isinstance(source_artifact_fingerprint, str):
+        raise ValueError("package validation report has no artifact fingerprint")
+    loop = motion.get("loop", True)
+    if not isinstance(loop, bool):
+        raise ValueError("motion.loop must be a boolean")
+    resampling = motion.get("resampling", "lanczos")
+    if resampling not in RESAMPLING_FILTERS:
+        raise ValueError("motion.resampling must be 'lanczos' or 'nearest'")
+    resized = [fit_frame(frame, args.size, str(resampling)) for frame in frames]
+    with tempfile.TemporaryDirectory(prefix=".export-staging-", dir=export_dir) as temporary:
+        staging = Path(temporary)
+        staged_output = staging / output.name
+        (
+            exported_frames,
+            exported_durations,
+            colors,
+            gif_bytes,
+            selected_fps,
+            export_attempts,
+        ) = export_gif(
+            resized,
+            durations,
+            staged_output,
+            args.max_bytes,
+            args.alpha_threshold,
+            loop,
+            args.min_colors,
+            args.fps_candidates,
+        )
+        validation = validate_gif(
+            staged_output,
+            args.size,
+            len(exported_frames),
+            exported_durations,
+            loop,
+            allow_frame_collapse=args.fps_candidates is not None,
+        )
+
+        preview_record = None
+        staged_preview = None
+        if preview_output is not None:
+            if args.preview_frame == "auto":
+                preview_frame, preview_index = automatic_preview_frame(
+                    package,
+                    motion,
+                    args.size,
+                    str(resampling),
+                )
+            else:
+                try:
+                    preview_index = int(args.preview_frame) - 1
+                except ValueError as exc:
+                    raise ValueError(
+                        "--preview-frame must be 'auto' or a 1-based frame number"
+                    ) from exc
+                if not 0 <= preview_index < len(exported_frames):
+                    raise ValueError("--preview-frame is outside the exported frame range")
+                preview_frame = exported_frames[preview_index]
+            staged_preview = staging / preview_output.name
+            mode, preview_bytes, preview_colors = write_preview(
+                preview_frame,
+                staged_preview,
+                args.preview_max_bytes,
+            )
+            preview_record = {
+                "path": preview_output.name,
+                "frame": preview_index + 1,
+                "mode": mode,
+                "colors": preview_colors,
+                "bytes": preview_bytes,
+                "sha256": sha256(staged_preview),
+            }
+
+        report_status, source_validation_complete = export_validation_status(
+            source_validation,
+            track_validation,
+            track_required=args.frame_track == "render",
+        )
+        validation_artifact_entries = [(output.name, staged_output)]
+        if staged_preview is not None and preview_output is not None:
+            validation_artifact_entries.append((preview_output.name, staged_preview))
+        artifact_fingerprint = fingerprint_files(
+            [
+                (f"artifact:{name}", path)
+                for name, path in validation_artifact_entries
+            ]
+        )
+        validation_artifacts = [
+            {"path": name, "sha256": sha256(path)}
+            for name, path in validation_artifact_entries
+        ]
+        report = {
+            "status": report_status,
+            "source_validation_complete": source_validation_complete,
+            "deliverable_ready": False,
+            "artifact_scope": "export_files",
+            "artifact_fingerprint": artifact_fingerprint,
+            "validation_artifacts": validation_artifacts,
+            "technical_validation": {
+                "status": "pass",
+                "checks": validation["checks"],
+            },
+            "visual_validation": {
+                "status": "pending",
+                "required": ["identity", "meaning", "loop", "alpha", "small_size"],
+                "notes": {},
+            },
+            "platform": args.platform,
+            "verified_on": args.verified_on,
+            "spec_url": args.spec_url,
+            "source_package": "../..",
+            "source_validation_status": source_validation["aggregate"],
+            "source_validation": source_validation,
+            "source_validation_report": {
+                "path": "../../validation/report.json",
+                "sha256": sha256(source_report_path),
+                "artifact_fingerprint": source_artifact_fingerprint,
+            },
+            "frame_track": args.frame_track,
+            "track_validation": track_validation,
+            "track_report": (
+                {
+                    "path": str(args.track_report.resolve().relative_to(package)),
+                    "sha256": sha256(args.track_report),
+                }
+                if args.track_report is not None
+                else None
+            ),
+            "canvas": list(args.size),
+            "resampling": resampling,
+            "source_frame_count": len(resized),
+            "source_total_duration_ms": sum(durations),
+            "frame_count": len(exported_frames),
+            "total_duration_ms": sum(exported_durations),
+            "gif": {
+                "path": output.name,
+                "bytes": gif_bytes,
+                "max_bytes": args.max_bytes,
+                "colors": colors,
+                "selected_fps": selected_fps,
+                "min_colors": args.min_colors,
+                "attempts": export_attempts,
+                "alpha_threshold": args.alpha_threshold,
+                "sha256": sha256(staged_output),
+                "validation": validation,
+            },
+            "preview": preview_record,
+        }
+        staged_report = staging / report_path.name
+        staged_report.write_text(
+            json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        staged_entries = [(staged_output, output)]
+        if staged_preview is not None and preview_output is not None:
+            staged_entries.append((staged_preview, preview_output))
+        staged_entries.append((staged_report, report_path))
+        commit_staged_files(staged_entries, staging)
     print(f"Wrote {output} ({gif_bytes} bytes, {colors} colors)")
     if preview_record:
-        print(f"Wrote {args.preview_output} ({preview_record['bytes']} bytes)")
+        print(f"Wrote {preview_output} ({preview_record['bytes']} bytes)")
     print(f"Wrote {report_path}")
 
 

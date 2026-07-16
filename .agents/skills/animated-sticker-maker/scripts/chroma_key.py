@@ -93,7 +93,9 @@ def main() -> None:
     image = Image.open(args.input)
     rgb = np.asarray(image.convert("RGB"), dtype=np.float32)
     key = estimate_border_key(rgb, args.border_width) if args.key == "auto" else parse_hex_color(args.key)
-    transparent_threshold = args.transparent_threshold or 12.0
+    transparent_threshold = (
+        12.0 if args.transparent_threshold is None else args.transparent_threshold
+    )
     if args.key == "auto":
         # Image generators often introduce a small background gradient even when
         # asked for a flat color. The subject must not touch the border, so auto-key
