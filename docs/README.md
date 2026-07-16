@@ -2,7 +2,7 @@
 
 这是仓库唯一的文档入口。仓库面向多主体、多母版和多套表情包生产；Agent 必须先确定任务属于哪个主体，再读取对应项目，不能把方芯规则套到像素小人或其他未来主体上。
 
-更新时间：`2026-07-15`
+更新时间：`2026-07-16`
 
 ## 当前项目
 
@@ -11,7 +11,7 @@
 | `fangxin` | 第二套微信候选待提交 | 方芯身份与 v6 母版已锁定；《方芯上班中》已通过微信发布链路；《方芯回你了》12 张 GIF、品牌素材与发布 QA 已完成，状态为 `ready_for_submission` | [`../projects/fangxin/README.md`](../projects/fangxin/README.md) |
 | `pixel-human` | 首包微信发布包待提交 | 公开名“像素小同事”已锁定；《小同事上班记》采用 `收到=v05`、`开会中=v5`、`磕头=v6`，最终微信 v1 发布包已通过 QA | [`../projects/pixel-human/README.md`](../projects/pixel-human/README.md) |
 | `motherboard2` | 概念候选 | 只保留青绿色 2.5D 方形生物概念图；尚未命名、没有批准母版，不进入生产 | [`../projects/motherboard2/README.md`](../projects/motherboard2/README.md) |
-| `$animated-sticker-maker` | `v0.6` | 已补齐自包含帧路径、可选已审核高帧率渲染轨和显式帧率/色数降级；待像素小人完成跨风格试片后评估 `v1` | [`current/skill-contract.md`](current/skill-contract.md) |
+| `$animated-sticker-maker` | `v0.8` | 已统一 validation 语义，采用单一 Agent Skills 格式、参考元数据、事务性打包、数值 `target_fps`、Apache-2.0 和多版本 CI；`pixel-human` 完整 canary 已通过 | [`current/skill-contract.md`](current/skill-contract.md) |
 
 ## 当前工作
 
